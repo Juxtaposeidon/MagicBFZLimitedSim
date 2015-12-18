@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(){
+  $(".cards").on("click", "a", function(event){
+    event.preventDefault();
+    var card = {id: $(this).attr("id")};
+    $("#draftedcards").append('<li>' + $(this).attr("id") + '</li>')
+    $.ajax({
+      url: '/draft/addcard',
+      method: "POST",
+      data: card
+    })
+  })
+})

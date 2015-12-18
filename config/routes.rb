@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-    get '/draft/new', to: 'draft#new'
+  get '/draft/new', to: 'draft#new'
+  post '/draft/addcard', to: 'draft#addcard'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
