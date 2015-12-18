@@ -1,7 +1,5 @@
 class DraftController < ApplicationController
   def new
-    session[:cards] = []
-        p session[:cards]
     @@newdraft = Draft.new
     @startingpack = @@newdraft.player1.pack1.contents
   end
@@ -11,8 +9,13 @@ class DraftController < ApplicationController
 
     @@newdraft.player1.removeCard(Card.find(params['id']))
     # p @@newdraft.player2.pack1.contents
-    @@newdraft.player2.cpuChoose
-    # p @@newdraft.player2.pack1.contents
+    @@newdraft.cpuplayers.each {|player| player.cpuChoose}
+    p "PLAYER2"
+    p @@newdraft.player2.pack1.contents
+
+    @@newdraft.rotatePacks
+    p "PLAYER 2 now player 1"
+    p @@newdraft.player1.currentPack.contents
 
   end
 

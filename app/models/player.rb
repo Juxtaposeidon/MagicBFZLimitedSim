@@ -24,13 +24,20 @@ class Player
 
   def removeCard(card)
     currentPack.contents.delete_if {|item| item == card}
-    p currentPack
   end
 
   def cpuChoose
-
     removeCard(currentPack.contents.sort_by{|card| card.rank}.reverse[0])
+  end
 
+  def receivePack(newpack)
+    if @pool.length <= 14
+      @pack1 = newpack
+    elsif @pool.length <= 28
+      @pack2 = newpack
+    else
+      @pack3 = newpack
+    end
   end
 
 end
