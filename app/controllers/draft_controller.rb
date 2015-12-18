@@ -1,7 +1,7 @@
 class DraftController < ApplicationController
   def new
     @@newdraft = Draft.new
-    @startingpack = @@newdraft.player1.pack1.contents
+    @startingpack = @@newdraft.player1.currentpack.contents
   end
 
   def addcard
@@ -11,11 +11,11 @@ class DraftController < ApplicationController
     # p @@newdraft.player2.pack1.contents
     @@newdraft.cpuplayers.each {|player| player.cpuChoose}
     p "PLAYER2"
-    p @@newdraft.player2.pack1.contents
+    p @@newdraft.player2.currentpack.contents
 
     @@newdraft.rotatePacks
     p "PLAYER 2 now player 1"
-    p @@newdraft.player1.currentPack.contents
+    p @@newdraft.player1.currentpack.contents
 
   end
 

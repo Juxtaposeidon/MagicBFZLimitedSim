@@ -8,9 +8,10 @@ class Draft
 
   def rotatePacks
     packs = []
-    packs = 8.times.map {|x| @allplayers[x].currentPack}.rotate
+    packs = 8.times.map {|x| @allplayers[x].currentpack}.rotate
+    p "***********"
     p packs
-    @allplayers.each_with_index {|player, index| player.receivePack(packs[index])}
+    @allplayers.each_with_index {|player, index| player.receivePack(packs[0])}
   end
 
 end
