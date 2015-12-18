@@ -1,0 +1,9 @@
+<%@startingpack.each do |card|%>
+  <li><%=card.name%></li>
+<%end%>
+
+<%@cpu.each do |player|%>
+<br>
+<%=player.pack1.contents%>
+<br>
+<%end%>
