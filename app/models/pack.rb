@@ -1,4 +1,5 @@
 class Pack
+  attr_reader :contents
   def initialize
     @contents = [Card.commons.sample(10), Card.uncommons.sample(3)]
     if rand(7) == 1
@@ -9,7 +10,4 @@ class Pack
     @contents.flatten!
   end
 
-  def content
-    return @contents
-  end
 end
