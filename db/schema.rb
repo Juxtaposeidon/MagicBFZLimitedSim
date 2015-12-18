@@ -17,13 +17,11 @@ ActiveRecord::Schema.define(version: 20151216234007) do
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.string   "name"
-    t.string   "rarity"
-    t.string   "color"
-    t.string   "color2"
-    t.integer  "rank"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "name"
+    t.string  "rarity"
+    t.string  "color"
+    t.string  "color2"
+    t.integer "rank"
   end
 
   create_table "players", force: :cascade do |t|

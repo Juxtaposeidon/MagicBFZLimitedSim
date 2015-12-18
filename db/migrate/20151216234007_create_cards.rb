@@ -6,7 +6,6 @@ class CreateCards < ActiveRecord::Migration
       t.string :color
       t.string :color2
       t.integer :rank
-      t.timestamps null: false
     end
   end
 end
