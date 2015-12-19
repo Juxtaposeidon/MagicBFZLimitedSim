@@ -18,7 +18,7 @@ $(document).ready(function(){
   $(".cards").on("click", "a", function(event){
     event.preventDefault();
     var card = {id: $(this).attr("id")};
-    $("#draftedcards").append('<li>' + $(this).attr("id") + '</li>')
+    $("#draftedcards").after( $(this).attr("id") + '  ')
     $.ajax({
       url: '/draft/addcard',
       method: "POST",
