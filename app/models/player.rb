@@ -3,6 +3,7 @@ class Player
   def initialize
     @pool = []
     @currentpack = Pack.new
+    @colorpool = Hash.new(0)
   end
 
   def openPack
@@ -11,6 +12,13 @@ class Player
 
   def addPool(card)
     @pool << card
+    if card.color != "Colorless"
+      @colorpool[card.color] += 1
+    end
+    if card.color2 != nil
+      @colorpool[card.color2] += 1
+    end
+    p @colorpool
   end
 
   def removeCard(card)
