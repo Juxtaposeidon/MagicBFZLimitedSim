@@ -5,6 +5,10 @@ class Player
     @currentpack = Pack.new
   end
 
+  def openPack
+    @currentpack = Pack.new
+  end
+
   def addPool(card)
     @pool << card
   end

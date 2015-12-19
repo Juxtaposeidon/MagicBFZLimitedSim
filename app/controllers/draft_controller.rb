@@ -2,6 +2,8 @@ class DraftController < ApplicationController
   def new
     @@newdraft = Draft.new
     @startingpack = @@newdraft.player1.currentpack.contents
+    @pack2 = @@newdraft.player2.currentpack.contents
+    @pack8 = @@newdraft.player8.currentpack.contents
   end
 
   def addcard
@@ -11,7 +13,13 @@ class DraftController < ApplicationController
     @@newdraft.cpuplayers.each {|player| player.cpuChoose}
     @@newdraft.rotatePacks
     @pack = @@newdraft.player1.currentpack.contents
-    p @pack
+    if @pack.length == 0
+      @@newdraft.newPacks
+      @pack = @@newdraft.player1.currentpack.contents
+    end
+    @pack2 = @@newdraft.player2.currentpack.contents
+    @pack8 = @@newdraft.player8.currentpack.contents
+
     respond_to do |format|
       format.js #Because there is an AJAX call, Rails pings map.js.erb. Go to map.js.erb
     end
