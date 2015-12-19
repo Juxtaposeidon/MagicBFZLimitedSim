@@ -4,14 +4,15 @@ class Draft
     @player1, @player2, @player3, @player4, @player5, @player6, @player7, @player8 = 8.times.map {Player.new}
     @cpuplayers = [@player2, @player3, @player4, @player5, @player6, @player7, @player8]
     @allplayers = [@player1, @player2, @player3, @player4, @player5, @player6, @player7, @player8]
+      packs = []
+
   end
 
   def rotatePacks
-    packs = []
     packs = 8.times.map {|x| @allplayers[x].currentpack}.rotate
     p "***********"
-    p packs
-    @allplayers.each_with_index {|player, index| player.receivePack(packs[0])}
+    p packs[1]
+    @allplayers.each_with_index {|player, index| player.receivePack(packs[index])}
   end
 
 end

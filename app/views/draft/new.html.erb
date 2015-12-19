@@ -1,5 +1,8 @@
 <div class = "cards">
+  <div class = "selector">
+
 <%@startingpack.each do |card|%>
   <li><%=link_to card.id, "Select", id: card.id %>  <%=card.name%> <%=card.rarity%> <%=card.color%> <%=card.color2%></li>
 <%end%>
+  </div>
 </div>

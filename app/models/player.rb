@@ -1,6 +1,5 @@
 class Player
-  attr_reader  :pack2, :pack3, :pool
-  attr_accessor :currentpack
+  attr_reader :pool, :currentpack
   def initialize
     @pool = []
     @currentpack = Pack.new

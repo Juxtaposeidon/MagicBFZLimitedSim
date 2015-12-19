@@ -6,17 +6,15 @@ class DraftController < ApplicationController
 
   def addcard
     @@newdraft.player1.addPool(Card.find(params['id']))
-
     @@newdraft.player1.removeCard(Card.find(params['id']))
     # p @@newdraft.player2.pack1.contents
     @@newdraft.cpuplayers.each {|player| player.cpuChoose}
-    p "PLAYER2"
-    p @@newdraft.player2.currentpack.contents
-
     @@newdraft.rotatePacks
-    p "PLAYER 2 now player 1"
-    p @@newdraft.player1.currentpack.contents
-
+    @pack = @@newdraft.player1.currentpack.contents
+    p @pack
+    respond_to do |format|
+      format.js #Because there is an AJAX call, Rails pings map.js.erb. Go to map.js.erb
+    end
   end
 
 end
