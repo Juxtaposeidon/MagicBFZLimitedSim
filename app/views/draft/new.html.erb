@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'drafting/draftpage.js'%>
+
 <div class = "cards">
 <h3>Battle for Zendikar Draft</h3>
 <br>
@@ -16,4 +18,29 @@
   <li><%=link_to card.id, "Select", id: card.id %>  <%=card.name%> <%=card.rarity%> <%=card.color%> <%=card.color2%></li>
 <%end%>
   </div>
+</div>
+<div id="pool">
+  <h3>Card pool</h3>
+  <table>
+    <tr>
+      <td>
+        <div id="draftedcards">
+          <h4>Pack 1</h4>
+        </div>
+      </td>
+    </tr>
+      <tr>
+      <td>
+                <div id="draftedcards2">
+          <h4>Pack 2</h4>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                <div id="draftedcards3">
+          <h4>Pack 3</h4>
+        </div>
+      </td>
+    </tr>
 </div>
