@@ -19,16 +19,7 @@ $(document).ready(function(){
   $(".cards").on("click", "a", function(event){
     event.preventDefault();
     var card = {id: $(this).attr("id")};
-    if(counter < 14){
-      $("#draftedcards").after( $(this).attr("id") + '  ')
-    }
-    else if(counter < 28){
-      $("#draftedcards2").after( $(this).attr("id") + '  ')
-    }
-    else{
-      $("#draftedcards3").after( $(this).attr("id") + '  ')
-    }
-    counter++;
+
 
     $.ajax({
       url: '/draft/addcard',
@@ -39,7 +30,16 @@ $(document).ready(function(){
       $('.selector').html(event['partial'])
       console.log(event['cardname'])
       console.log(event['cardid'])
-
+      if(counter < 14){
+        $("#draftedcards").append( event['cardname'] + '  ')
+      }
+      else if(counter < 28){
+        $("#draftedcards2").append( event['cardname'] + '  ')
+      }
+      else{
+        $("#draftedcards3").append( event['cardname'] + '  ')
+      }
+      counter++;
       if(counter == 42){
         $('div.selector').html("<H3>The draft is now over</H3>")
       }
