@@ -20,9 +20,13 @@ class DraftController < ApplicationController
     @pack2 = @@newdraft.player2.currentpack.contents
     @pack8 = @@newdraft.player8.currentpack.contents
      p  @@newdraft.player2.colorpool
-    respond_to do |format|
-      format.js #Because there is an AJAX call, Rails pings map.js.erb. Go to map.js.erb
-    end
+      render :json => {
+        :pack => @pack,
+        :partial => render_to_string(:partial => 'draft/draft')
+      }
+    # respond_to do |format|
+    #   format.js
+    # end
   end
 
 end

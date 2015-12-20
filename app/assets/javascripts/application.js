@@ -36,6 +36,8 @@ $(document).ready(function(){
       data: card
     })
     .done(function(event){
+      $('.selector').html(event['partial'])
+      console.log(event['pack'])
       if(counter == 42){
         $('div.selector').html("<H3>The draft is now over</H3>")
       }
