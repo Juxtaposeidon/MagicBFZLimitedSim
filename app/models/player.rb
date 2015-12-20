@@ -31,7 +31,6 @@ class Player
   end
 
   def receivePack(newpack)
-
     @currentpack = newpack
   end
 
