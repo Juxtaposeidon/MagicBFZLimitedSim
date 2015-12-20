@@ -50,3 +50,17 @@ td{
 .cards{
   width:70%;
 }
+
+.card{
+  text-decoration: underline;
+}
+
+#cardhighlight{
+  display: none;
+  position: fixed;
+  background-color: black;
+  left: 52%;
+  top: 20%;
+  border-style: solid;
+  border-width: 5px;
+}

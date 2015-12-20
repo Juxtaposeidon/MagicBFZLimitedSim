@@ -30,9 +30,14 @@ $(document).ready(function(){
       }
     })
   })
-  $("#pool").on("mouseover", ".card", function(event){
-    console.log($(this).attr("id"))
-    $("#draftedcards").append( "<img src=/assets/" + $(this).attr("id") + ".jpg>")
+  $("#pool").on("mouseover", ".card", function(){
+    $("#cardhighlight").toggle();
+    $("#cardhighlight").html( "<img src=/assets/" + $(this).attr("id") + ".jpg>")
+  })
+
+  $("#pool").on("mouseout", ".card", function(){
+    $("#cardhighlight").toggle();
+    $("#cardhighlight").html()
   })
 
 })
