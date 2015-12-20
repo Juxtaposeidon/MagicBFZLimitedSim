@@ -15,10 +15,20 @@
 //= require turbolinks
 //= require_tree .
 $(document).ready(function(){
+  var counter = 0
   $(".cards").on("click", "a", function(event){
     event.preventDefault();
     var card = {id: $(this).attr("id")};
-    $("#draftedcards").after( $(this).attr("id") + '  ')
+    if(counter < 14){
+      $("#draftedcards").after( $(this).attr("id") + '  ')
+    }
+    else if(counter < 28){
+      $("#draftedcards2").after( $(this).attr("id") + '  ')
+    }
+    else{
+      $("#draftedcards3").after( $(this).attr("id") + '  ')
+    }
+    counter++;
     $.ajax({
       url: '/draft/addcard',
       method: "POST",
