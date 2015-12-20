@@ -19,7 +19,7 @@ class DraftController < ApplicationController
     end
     @pack2 = @@newdraft.player2.currentpack.contents
     @pack8 = @@newdraft.player8.currentpack.contents
-
+     p  @@newdraft.player2.colorpool
     respond_to do |format|
       format.js #Because there is an AJAX call, Rails pings map.js.erb. Go to map.js.erb
     end

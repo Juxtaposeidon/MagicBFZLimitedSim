@@ -29,10 +29,16 @@ $(document).ready(function(){
       $("#draftedcards3").after( $(this).attr("id") + '  ')
     }
     counter++;
+
     $.ajax({
       url: '/draft/addcard',
       method: "POST",
       data: card
+    })
+    .done(function(event){
+      if(counter == 42){
+        $('div.selector').html("<H3>The draft is now over</H3>")
+      }
     })
   })
 })

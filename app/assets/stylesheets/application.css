@@ -48,3 +48,7 @@ table{
 td{
   vertical-align: text-top;
 }
+
+.cards{
+  width:65%;
+}
