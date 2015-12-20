@@ -21,12 +21,11 @@ class DraftController < ApplicationController
     @pack8 = @@newdraft.player8.currentpack.contents
      p  @@newdraft.player2.colorpool
       render :json => {
-        :pack => @pack,
+        :cardname => Card.find(params['id']).name,
+        :cardid => Card.find(params['id']).id,
         :partial => render_to_string(:partial => 'draft/draft')
       }
-    # respond_to do |format|
-    #   format.js
-    # end
+
   end
 
 end

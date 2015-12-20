@@ -37,7 +37,9 @@ $(document).ready(function(){
     })
     .done(function(event){
       $('.selector').html(event['partial'])
-      console.log(event['pack'])
+      console.log(event['cardname'])
+      console.log(event['cardid'])
+
       if(counter == 42){
         $('div.selector').html("<H3>The draft is now over</H3>")
       }
