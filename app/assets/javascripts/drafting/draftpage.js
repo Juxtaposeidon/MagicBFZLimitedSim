@@ -30,4 +30,9 @@ $(document).ready(function(){
       }
     })
   })
+  $("#pool").on("mouseover", ".card", function(event){
+    console.log($(this).attr("id"))
+    $("#draftedcards").append( "<img src=/assets/" + $(this).attr("id") + ".jpg>")
+  })
+
 })
