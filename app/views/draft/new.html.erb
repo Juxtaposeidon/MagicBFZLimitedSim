@@ -1,0 +1,47 @@
+<%= javascript_include_tag 'drafting/draftpage.js'%>
+
+<div class = "cards">
+<div id = "cardhighlight"></div>
+<h3>Battle for Zendikar Draft</h3>
+<br>
+<div class = "selector">
+
+<%@startingpack.each do |card|%>
+<%=link_to image_tag("#{card.id}.jpg", :border=>0), "Select", id: card.id %>
+<%end%>
+<h5>player2</h5>
+<%@pack2.each do |card|%>
+  <li><%=link_to card.id, "Select", id: card.id %>  <%=card.name%> <%=card.rarity%> <%=card.color%> <%=card.color2%></li>
+<%end%>
+<h5>player8</h5>
+
+<%@pack8.each do |card|%>
+  <li><%=link_to card.id, "Select", id: card.id %>  <%=card.name%> <%=card.rarity%> <%=card.color%> <%=card.color2%></li>
+<%end%>
+  </div>
+</div>
+<div id="pool">
+  <h3>Card pool</h3>
+  <table>
+    <tr>
+      <td>
+        <div id="draftedcards">
+          <h4>Pack 1</h4>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="draftedcards2">
+          <h4>Pack 2</h4>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="draftedcards3">
+          <h4>Pack 3</h4>
+        </div>
+      </td>
+    </tr>
+</div>
