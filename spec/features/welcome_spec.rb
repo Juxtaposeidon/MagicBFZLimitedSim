@@ -10,10 +10,17 @@ describe 'home page' do
   end
 end
 
-describe "Draft", js: true do
+describe "Draft" do
   it "load the draft page successfully" do
     visit '/'
     click_on "Start draft"
     expect(page).to have_content("Battle for Zendikar Draft")
   end
+
+  it "should add a card to the card pool", js: true do
+    visit draft_new_path
+    first("img").click
+    page.should have_css('span.card')
+  end
+
 end
