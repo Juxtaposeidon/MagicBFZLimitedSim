@@ -19,6 +19,7 @@ class DraftController < ApplicationController
     end
     @pack2 = @@newdraft.player2.currentpack.contents
     @pack8 = @@newdraft.player8.currentpack.contents
+
      p  @@newdraft.player2.colorpool
       render :json => {
         :cardname => "<span class = 'card' id = '#{params['id']}'>" + Card.find(params['id']).name + "</span>",

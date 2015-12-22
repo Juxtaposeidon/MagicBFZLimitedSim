@@ -28,18 +28,31 @@ class Player
   end
 
   def cpuChoose
-    choicecard = @currentpack.contents.sort_by{|card| card.rank}.reverse[0]
-    addPool(choicecard)
-    removeCard(choicecard)
+    if @pool.length < 15
+      choicecard = @currentpack.contents.sort_by{|card| card.rank}.reverse[0]
+      addPool(choicecard)
+      removeCard(choicecard)
+    else
+      pickColor
+      opencards = @currentpack.contents.partition {|card| onColor(card)}
+      if opencards[0].length > 0
+        addPool(opencards[0].sort_by{|card| card.rank}.reverse[0])
+        removeCard(opencards[0].sort_by{|card| card.rank}.reverse[0])
+      else
+        addPool(opencards[1].sort_by{|card| card.rank}.reverse[0])
+        removeCard(opencards[1].sort_by{|card| card.rank}.reverse[0])
+      end
+    end
+
   end
 
   def receivePack(newpack)
     @currentpack = newpack
+
   end
 
   def showPool
     p @colorpool
-    pickColor
   end
 
   def pickColor
@@ -48,4 +61,7 @@ class Player
     p @color1, @color2
   end
 
+  def onColor(card)
+    card.color == @color1 || card.color2 == @color1 || card.color == @color2 || card.color2 == @color2 || card.color == "Colorless"
+  end
 end
