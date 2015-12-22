@@ -7,8 +7,9 @@ class DraftController < ApplicationController
   end
 
   def addcard
-    @@newdraft.player1.addPool(Card.find(params['id']))
-    @@newdraft.player1.removeCard(Card.find(params['id']))
+    pickedcard = Card.find(params['id'])
+    @@newdraft.player1.addPool(pickedcard)
+    @@newdraft.player1.removeCard(pickedcard)
     # p @@newdraft.player2.pack1.contents
     @@newdraft.cpuplayers.each {|player| player.cpuChoose}
     @@newdraft.rotatePacks
@@ -19,13 +20,10 @@ class DraftController < ApplicationController
     end
     @pack2 = @@newdraft.player2.pool
     @pack8 = @@newdraft.player8.pool
-
-     p  @@newdraft.player2.colorpool
-      render :json => {
-        :cardname => "<span class = 'card' id = '#{params['id']}'>" + Card.find(params['id']).name + "</span>",
-        :cardid => Card.find(params['id']).id,
-        :partial => render_to_string(:partial => 'draft/draft')
-      }
+    render :json => {
+      :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{params['id']}'>" + pickedcard.name + "</span>",
+      :partial => render_to_string(:partial => 'draft/draft')
+    }
 
   end
 
