@@ -17,8 +17,8 @@ class DraftController < ApplicationController
       @@newdraft.newPacks
       @pack = @@newdraft.player1.currentpack.contents
     end
-    @pack2 = @@newdraft.player2.currentpack.contents
-    @pack8 = @@newdraft.player8.currentpack.contents
+    @pack2 = @@newdraft.player2.pool
+    @pack8 = @@newdraft.player8.pool
 
      p  @@newdraft.player2.colorpool
       render :json => {
