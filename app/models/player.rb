@@ -21,7 +21,7 @@ class Player
   end
 
   def removeCard(card)
-    @currentpack.contents.delete_if {|item| item == card}
+    @currentpack.contents.delete(card)
   end
 
   def cpuChoose
@@ -32,6 +32,10 @@ class Player
 
   def receivePack(newpack)
     @currentpack = newpack
+  end
+
+  def colorLock
+
   end
 
 end
