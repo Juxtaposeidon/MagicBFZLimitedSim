@@ -15,11 +15,11 @@ class Draft
     else
       packs = 8.times.map {|x| @allplayers[x].currentpack}.rotate(-1)
     end
-    p packs[1]
     @allplayers.each_with_index {|player, index| player.receivePack(packs[index])}
   end
 
   def newPacks
+    @allplayers.each {|player| player.showPool}
     @allplayers.each {|player| player.openPack}
   end
 

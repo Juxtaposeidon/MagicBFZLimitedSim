@@ -1,9 +1,11 @@
 class Player
-  attr_reader :pool, :currentpack, :colorpool
+  attr_reader :pool, :currentpack, :colorpool, :color1, :color2
   def initialize
     @pool = []
     @currentpack = Pack.new
     @colorpool = Hash.new(0)
+    @color1
+    @color2
   end
 
   def openPack
@@ -13,12 +15,13 @@ class Player
   def addPool(card)
     @pool << card
     if card.color != "Colorless"
-      @colorpool[card.color] += 1
+      @colorpool[card.color] += (1 * card.rank)
     end
     if card.color2 != nil
-      @colorpool[card.color2] += 1
+      @colorpool[card.color2] += (1 * card.rank)
     end
   end
+
 
   def removeCard(card)
     @currentpack.contents.delete(card)
@@ -34,8 +37,15 @@ class Player
     @currentpack = newpack
   end
 
-  def colorLock
+  def showPool
+    p @colorpool
+    pickColor
+  end
 
+  def pickColor
+    @color1 = @colorpool.sort_by{|k,v| v}.reverse[0][0]
+    @color2 = @colorpool.sort_by{|k,v| v}.reverse[1][0]
+    p @color1, @color2
   end
 
 end
