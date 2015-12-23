@@ -28,21 +28,21 @@ class Player
 
   def cpuChoose
     if @pool.length < 15
-      choicecard = @currentpack.contents.sort_by{|card| card.rank}.reverse[0]
-      addPool(choicecard)
-      removeCard(choicecard)
+      highvalue = @currentpack.contents.max_by{|card| card.rank}.rank
+      choicecard = @currentpack.contents.select{|card| card.rank == highvalue}.sample
     else
       pickColor
       opencards = @currentpack.contents.partition {|card| onColor(card)}
       if opencards[0].length > 0
-        addPool(opencards[0].sort_by{|card| card.rank}.reverse[0])
-        removeCard(opencards[0].sort_by{|card| card.rank}.reverse[0])
+        highvalue = opencards[0].max_by{|card| card.rank}.rank
+        choicecard = opencards[0].select{|card| card.rank == highvalue}.sample
       else
-        addPool(opencards[1].sort_by{|card| card.rank}.reverse[0])
-        removeCard(opencards[1].sort_by{|card| card.rank}.reverse[0])
+        highvalue = opencards[1].max_by{|card| card.rank}.rank
+        choicecard = opencards[1].select{|card| card.rank == highvalue}.sample
       end
     end
-
+    addPool(choicecard)
+    removeCard(choicecard)
   end
 
   def receivePack(newpack)
@@ -57,7 +57,6 @@ class Player
   def pickColor
     @color1 = @colorpool.sort_by{|k,v| v}.reverse[0][0]
     @color2 = @colorpool.sort_by{|k,v| v}.reverse[1][0]
-    p @color1, @color2
   end
 
   def onColor(card)

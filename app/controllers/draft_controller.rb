@@ -17,8 +17,17 @@ class DraftController < ApplicationController
       @@newdraft.newPacks
     end
     @pack = @@newdraft.player1.currentpack.contents
-    @pack2 = @@newdraft.player2.currentpack.contents
-    @pack8 = @@newdraft.player8.currentpack.contents
+    @pack2 = @@newdraft.player2.pool
+    @pack8 = @@newdraft.player8.pool
+
+    p @@newdraft.player2.colorpool
+    p @@newdraft.player2.color1
+    p @@newdraft.player2.color2
+
+    p @@newdraft.player8.colorpool
+    p @@newdraft.player8.color1
+    p @@newdraft.player8.color2
+
     render :json => {
       :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{params['id']}'>" + pickedcard.name + "</span>",
       :partial => render_to_string(:partial => 'draft/draft')
