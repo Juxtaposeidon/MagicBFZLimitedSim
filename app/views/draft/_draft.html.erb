@@ -1,10 +1,10 @@
 <div class = "selector">
   <%@pack.each do |card|%>
-<%=link_to image_tag("#{card.id}.jpg", :border=>0), "Select", id: card.id %>
+    <%=link_to image_tag("#{card.id}.jpg", :border=>0), "Select", id: card.id %>
   <%end%>
-  <h5>player2</h5>
+<h5>player2</h5>
 
-  <%@pack2.each do |card|%>
+<%@pack2.each do |card|%>
   <li><%=link_to card.id, "Select", id: card.id %>  <%=card.name%> <%=card.rarity%> <%=card.color%> <%=card.color2%></li>
 <%end%>
 <h5>player8</h5>
