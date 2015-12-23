@@ -2,7 +2,6 @@ class Player
   attr_reader :pool, :currentpack, :colorpool, :color1, :color2
   def initialize
     @pool = []
-    @currentpack = Pack.new
     @colorpool = Hash.new(0)
     @color1
     @color2

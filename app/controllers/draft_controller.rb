@@ -13,13 +13,12 @@ class DraftController < ApplicationController
     # p @@newdraft.player2.pack1.contents
     @@newdraft.cpuplayers.each {|player| player.cpuChoose}
     @@newdraft.rotatePacks
-    @pack = @@newdraft.player1.currentpack.contents
-    if @pack.length == 0
+    if @@newdraft.player1.pool.length % 14 == 0
       @@newdraft.newPacks
-      @pack = @@newdraft.player1.currentpack.contents
     end
-    @pack2 = @@newdraft.player2.pool
-    @pack8 = @@newdraft.player8.pool
+    @pack = @@newdraft.player1.currentpack.contents
+    @pack2 = @@newdraft.player2.currentpack.contents
+    @pack8 = @@newdraft.player8.currentpack.contents
     render :json => {
       :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{params['id']}'>" + pickedcard.name + "</span>",
       :partial => render_to_string(:partial => 'draft/draft')
