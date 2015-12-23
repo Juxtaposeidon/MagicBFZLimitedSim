@@ -27,7 +27,7 @@ class Player
   end
 
   def cpuChoose
-    if @pool.length < 15
+    if @pool.length < 8
       highvalue = @currentpack.contents.max_by{|card| card.rank}.rank
       choicecard = @currentpack.contents.select{|card| card.rank == highvalue}.sample
     else
@@ -55,8 +55,8 @@ class Player
   end
 
   def pickColor
-    @color1 = @colorpool.sort_by{|k,v| v}.reverse[0][0]
-    @color2 = @colorpool.sort_by{|k,v| v}.reverse[1][0]
+    @color1 = @colorpool.sort_by{|k,v| v}[@colorpool.length-1][0]
+    @color2 = @colorpool.sort_by{|k,v| v}[@colorpool.length-2][0]
   end
 
   def onColor(card)
