@@ -3,17 +3,16 @@ class Draft
 
   def initialize
     @player1, @player2, @player3, @player4, @player5, @player6, @player7, @player8 = 8.times.map {Player.new}
-    @cpuplayers = [@player2, @player3, @player4, @player5, @player6, @player7, @player8]
     @allplayers = [@player1, @player2, @player3, @player4, @player5, @player6, @player7, @player8]
-      newPacks
-
+    @cpuplayers = @allplayers[1..7]
+    newPacks
   end
 
   def rotatePacks
     if @player1.pool.length < 15 || @player1.pool.length > 28
-      @packs = @packs.rotate
+      @packs.rotate!
     else
-      @packs = @packs.rotate(-1)
+      @packs.rotate!(-1)
     end
     @allplayers.each_with_index {|player, index| player.receivePack(@packs[index])}
   end
