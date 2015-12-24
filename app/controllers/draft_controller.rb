@@ -1,5 +1,5 @@
 class DraftController < ApplicationController
-  def new
+  def show
     @@newdraft = Draft.new
     @startingpack = @@newdraft.player1.currentpack.contents
     @pack2 = @@newdraft.player2.currentpack.contents
