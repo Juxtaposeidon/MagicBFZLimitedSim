@@ -7,7 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id ="topbar">
+  <table>
+    <tr>
+      <td>
+      Battle for Zendikar draft simulator
+      </td>
+      <td class = "menuitem">
+        <%=link_to 'Start draft', draft_new_path%>
+      </td>
+      <td class = "menuitem">
+        Sample pack
+      </td>
+      <td class = "menuitem">
+        View full set
+      </td>
+    </tr>
+</table>
+</div>
 <%= yield %>
 
 </body>
