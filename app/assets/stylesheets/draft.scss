@@ -1,3 +1,32 @@
-// Place all the styles related to the draft controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.White{
+  color: white;
+}
+
+.Black{
+  color: black;
+}
+
+.Blue{
+  color: #3300CC;
+}
+
+.Green{
+  color:#006600;
+}
+
+.Red{
+  color: #B22222;
+}
+
+.Colorless{
+  color: #B0B0B0;
+}
+
+.White.Red, .White.Green, .Blue.Red, .Blue.Green, .White.Black, .Black.Green, .Black.Red, .Blue.Black, .Black.Red, .Red.Green, .White.Blue{
+  color: #FFD700;
+}
+
+h3{
+  margin-top: 20px;
+}
