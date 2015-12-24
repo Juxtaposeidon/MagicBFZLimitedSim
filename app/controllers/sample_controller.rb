@@ -1,5 +1,5 @@
 class SampleController < ApplicationController
-  def new
+  def show
     @pack = []
     6.times do
       @pack << Pack.new.contents
