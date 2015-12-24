@@ -13,8 +13,6 @@ $(document).ready(function(){
     })
     .done(function(event){
       $('.selector').html(event['partial'])
-      console.log(event['cardname'])
-      console.log(event['cardid'])
       if(counter < 14){
         $("#draftedcards").append( event['cardname'] + '  ')
       }

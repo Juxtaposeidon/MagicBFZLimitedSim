@@ -7,7 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id ="topbar">
+  <table>
+    <tr>
+      <td>
+      <%=link_to 'Battle for Zendikar limited sim.', root_path%>
+      </td>
+      <td class = "menuitem">
+        <%=link_to 'Start draft', draft_index_path%>
+      </td>
+      <td class = "menuitem">
+        <%=link_to 'Sample sealed pool', sample_index_path%>
+      </td>
+      <td class = "menuitem">
+        <%=link_to 'View full BFZ set', fullset_index_path%>
+      </td>
+    </tr>
+</table>
+</div>
 <%= yield %>
 
 </body>

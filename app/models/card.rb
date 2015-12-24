@@ -3,6 +3,6 @@ class Card < ActiveRecord::Base
     scope :uncommons, -> {where("rarity = ?", "Uncommon")}
     scope :commons, -> {where("rarity = ?", "Common")}
     scope :mythics, -> {where("rarity = ?", "Mythic Rare")}
-
+    scope :colorsort, -> (id=nil) { where(:color => id) }
 
 end
