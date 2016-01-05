@@ -1,14 +1,13 @@
 $(document).ready(function(){
-  console.log("READY")
   var counter = 0
   $(".cards").on("click", "a", function(event){
     event.preventDefault();
-    var card = {id: $(this).attr("id")};
-
-
+    var card = {
+      id: $(this).attr("id")
+    };
     $.ajax({
       url: '/draft/addcard',
-      method: "POST",
+      method: "GET",
       data: card
     })
     .done(function(event){
