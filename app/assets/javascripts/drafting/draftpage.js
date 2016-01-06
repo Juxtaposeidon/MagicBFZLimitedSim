@@ -10,16 +10,16 @@ $(document).ready(function(){
       method: "GET",
       data: card
     })
-    .done(function(event){
-      $('.selector').html(event['partial'])
+    .done(function(result){
+      $('.selector').html(result['partial'])
       if(counter < 14){
-        $("#draftedcards").append( event['cardname'] + '  ')
+        $("#draftedcards").append(result['cardname'] + '  ')
       }
       else if(counter < 28){
-        $("#draftedcards2").append( event['cardname'] + '  ')
+        $("#draftedcards2").append(result['cardname'] + '  ')
       }
       else{
-        $("#draftedcards3").append( event['cardname'] + '  ')
+        $("#draftedcards3").append(result['cardname'] + '  ')
       }
       counter++;
       if(counter == 42){
