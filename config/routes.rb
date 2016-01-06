@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   get '/draft/index', to: 'draft#index'
-  post '/draft/addcard', to: 'draft#addcard'
+  get '/draft/addcard', to: 'draft#addcard'
   get '/sample/index', to: 'sample#index'
   get '/fullset/index', to: 'fullset#index'
 

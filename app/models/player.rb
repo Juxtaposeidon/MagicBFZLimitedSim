@@ -21,7 +21,6 @@ class Player
     end
   end
 
-
   def removeCard(card)
     @currentpack.contents.delete(card)
   end
@@ -47,7 +46,6 @@ class Player
 
   def receivePack(newpack)
     @currentpack = newpack
-
   end
 
   def showPool

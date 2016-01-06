@@ -1,25 +1,26 @@
 $(document).ready(function(){
+  console.log("READY")
   var counter = 0
   $(".cards").on("click", "a", function(event){
     event.preventDefault();
-    var card = {
-      id: $(this).attr("id")
-    };
+    var card = {id: $(this).attr("id")};
+
+
     $.ajax({
       url: '/draft/addcard',
-      method: "GET",
+      method: "POST",
       data: card
     })
-    .done(function(result){
-      $('.selector').html(result['partial'])
+    .done(function(event){
+      $('.selector').html(event['partial'])
       if(counter < 14){
-        $("#draftedcards").append(result['cardname'] + '  ')
+        $("#draftedcards").append( event['cardname'] + '  ')
       }
       else if(counter < 28){
-        $("#draftedcards2").append(result['cardname'] + '  ')
+        $("#draftedcards2").append( event['cardname'] + '  ')
       }
       else{
-        $("#draftedcards3").append(result['cardname'] + '  ')
+        $("#draftedcards3").append( event['cardname'] + '  ')
       }
       counter++;
       if(counter == 42){
