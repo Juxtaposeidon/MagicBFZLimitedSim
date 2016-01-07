@@ -10,7 +10,8 @@ $(document).ready(function(){
       url: '/sample/addcard'
     })
     .done(function(result){
-      $('.carddisplay').html(result['partial'])
+      $('.carddisplay').html(result['partial']);
+      $('#sealedpool ol').append(result['cardname'])
     })
   })
 })

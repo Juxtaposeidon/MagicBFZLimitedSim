@@ -22,9 +22,9 @@ class SampleController < ApplicationController
     p @@pack
     @pack = @@pack
     render :json => {
-      :partial => render_to_string(:partial => 'sample/sealed')
+      :partial => render_to_string(:partial => 'sample/sealed'),
+      :cardname => "<li><span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{params['id']}'>" + pickedcard.name + "</span></li>"
     }
-
   end
 
 end
