@@ -1,7 +1,48 @@
 <div class = "topmargin">
-  <h3>Battle for Zendikar Example Sealed Pool</h3>
-  <br>
-  <%@pack.each do |card|%>
-    <%=image_tag("#{card.id}.jpg", :border=>0)%>
-  <%end%>
+  <div class = "sealedcards">
+    <div id = "cardhighlight"></div>
+    <h3>Battle for Zendikar Example Sealed Pool</h3>
+    <br>
+    <%@pack.each do |card|%>
+      <%=link_to image_tag("#{card.id}.jpg", :border=>0), "Select", id: card.id %>    <%end%>
+  </div>
+</div>
+<div id="pool">
+  <table>
+    <tr>
+      <td>
+        <div id="blackcards">
+          <h3 id="pooltitle">Card pool</h3>
+          <h4>Black</h4>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="bluecards">
+          <h4>Blue</h4>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="greencards">
+          <h4>Green</h4>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="whitecards">
+          <h4>White</h4>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="redcards">
+          <h4>Red</h4>
+        </div>
+      </td>
+    </tr>
 </div>
