@@ -1,28 +1,39 @@
-== README
+# Magic the Gathering Limited Simulator: Battle for Zendikar
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails app that simulates the draft and sealed modes for Magic the Gathering. For the draft portion, users can pick their cards alongside seven artificial opponents to build a formidable deck. For the sealed portion, the app displays a pool of six opened packs from which the user can choose cards.
 
-Things you may want to cover:
+![Draftscreen](/app/assets/images/mtgdrafter.png)
 
-* Ruby version
+# Demo
 
-* System dependencies
+An online demo is available at http://obscure-fortress-6603.herokuapp.com/
 
-* Configuration
+# Features
 
-* Database creation
+* Locates artwork from over 200 artists.
 
-* Database initialization
+* Works with Google Maps to generate interactive maps.
 
-* How to run the test suite
+* Searches through a user's local vicinity to identify nearby artwork and provide directions.
 
-* Services (job queues, cache servers, search engines, etc.)
+* Can search for artwork nearby a given street address or public location.
 
-* Deployment instructions
+* Sorts and displays artwork by individual artist.
 
-* ...
+#  Installation
 
+Clone this repo onto your desktop and run `bundle install` to retrieve the necessary gems.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  ```
+  git clone https://github.com/Juxtaposeidon/SFTourist.git
+  bundle install
+  ```
+
+# Usage
+
+After cloning the repo and installing the gems, you can run `rails s` to start your local server. The app can then be accessed at http://localhost:3000
+
+# License
+
+This project is licensed under the terms of the MIT license: https://github.com/IgorAntun/node-chat/blob/master/LICENSE.md
+
