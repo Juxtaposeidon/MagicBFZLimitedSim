@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/draft/index', to: 'draft#index'
   get '/draft/addcard', to: 'draft#addcard'
   get '/sample/index', to: 'sample#index'
+  get '/sample/addcard', to: 'sample#addcard'
+  get '/sample/removecard', to: 'sample#removecard'
   get '/fullset/index', to: 'fullset#index'
 
   # Example of regular route:

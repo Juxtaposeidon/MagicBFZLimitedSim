@@ -1,0 +1,6 @@
+<div class = "carddisplay">
+  <%@pack.each do |card|%>
+    <%=link_to image_tag("#{card.id}.jpg", :border=>0), "Select", id: card.id %>
+  <%end%>
+</div>
+<div class="marker"></div>

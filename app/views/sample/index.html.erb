@@ -1,10 +1,14 @@
+<%= javascript_include_tag 'sample/sealedpage.js'%>
 <div class = "topmargin">
   <div class = "sealedcards">
     <div id = "cardhighlight"></div>
     <h3>Battle for Zendikar Example Sealed Pool</h3>
     <br>
-    <%@pack.each do |card|%>
-      <%=link_to image_tag("#{card.id}.jpg", :border=>0), "Select", id: card.id %>    <%end%>
+    <div class= "carddisplay">
+      <%@pack.each do |card|%>
+        <%=link_to image_tag("#{card.id}.jpg", :border=>0), "Select", id: card.id %>
+      <%end%>
+    </div>
   </div>
 </div>
 <div id="pool">
