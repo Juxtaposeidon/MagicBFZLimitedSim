@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(".sealedcards").on("click", "a", function(event){
+  $(".sealedcards").on("click", "img", function(event){
     event.preventDefault();
     var card = $(this).data('name');
     var cardid = $(this).attr('id');

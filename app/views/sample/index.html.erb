@@ -6,7 +6,7 @@
     <br>
     <div class= "carddisplay">
       <%@pack.each_with_index do |card, index|%>
-        <%=link_to image_tag("#{card.id}.jpg", :border=>0), "Select", id: index, class: [card.color, card.color2], data: {name: card.name} %>
+        <%=image_tag("#{card.id}.jpg", :border=>0, id: index, class: [card.color, card.color2, "cardimage"], data: {name: card.name}) %>
       <%end%>
     </div>
   </div>
