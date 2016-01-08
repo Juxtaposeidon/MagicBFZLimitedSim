@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/draft/index', to: 'draft#index'
   get '/draft/addcard', to: 'draft#addcard'
-  get '/sample/index', to: 'sample#index'
-  get '/sample/addcard', to: 'sample#addcard'
-  get '/sample/removecard', to: 'sample#removecard'
+  get '/sealed/index', to: 'sealed#index'
+  get '/sealed/addcard', to: 'sealed#addcard'
+  get '/sealed/removecard', to: 'sealed#removecard'
   get '/fullset/index', to: 'fullset#index'
 
   # Example of regular route:

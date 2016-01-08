@@ -1,4 +1,4 @@
-class SampleController < ApplicationController
+class SealedController < ApplicationController
   def index
     @@pack = []
     6.times do
