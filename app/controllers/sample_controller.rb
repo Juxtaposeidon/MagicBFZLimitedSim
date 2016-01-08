@@ -5,16 +5,14 @@ class SampleController < ApplicationController
       @@pack += Pack.new.contents
     end
     @@pack.sort_by!{|card| [card.color, card.name]}
-    # multiholder = []
-    # @@pack.each do |card|
-    #   if card.color2 != nil
-    #     multiholder << card
-    #   end
-    # end
-    # @@pack.delete_if {|card| card.color2 != nil}
-    # @@pack += multiholder
-    @@pack = @@pack.partition {|card| card.color2 != nil}
-    @@pack.flatten!
+    multiholder = []
+    @@pack.delete_if do |card|
+      unless card.color2.nil?
+        multiholder << card
+        true
+      end
+    end
+    @@pack += multiholder
     @pack = @@pack
   end
 
