@@ -5,14 +5,14 @@ $(document).ready(function(){
     var cardid = $(this).attr('id');
     var cardclass = $(this).attr('class')
     $(this).toggle();
-    $('#sealedpool ol').append("<li><span class='"+ cardclass + " poolcard' id='" + cardid + "'>" + card + "</span></li>")
+    $('#sealedpool ol').append("<li>" + card + "</li>")
+    $('li').last().addClass(cardclass)
+    $('li').last().attr('id', cardid)
   })
 
-  $('#sealedpool').on('click', '.poolcard', function(){
-    var card = $(this).text();
+  $('#sealedpool').on('click', 'li', function(){
     var cardid = $(this).attr('id');
-    console.log(card)
-    $(this).closest("li").remove()
+    $(this).remove()
     $("#" + cardid).show();
   })
 })
