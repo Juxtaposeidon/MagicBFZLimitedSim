@@ -2,9 +2,8 @@ class SampleController < ApplicationController
   def index
     @@pack = []
     6.times do
-      @@pack << Pack.new.contents
+      @@pack += Pack.new.contents
     end
-    @@pack.flatten!
     @@pack.sort_by!{|card| [card.color, card.name]}
     # multiholder = []
     # @@pack.each do |card|
