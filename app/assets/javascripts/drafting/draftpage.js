@@ -1,7 +1,6 @@
 $(document).ready(function(){
   var counter = 0
-  $(".cards").on("click", "a", function(event){
-    event.preventDefault();
+  $(".cards").on("click", "img", function(event){
     var card = {
       id: $(this).attr("id")
     };

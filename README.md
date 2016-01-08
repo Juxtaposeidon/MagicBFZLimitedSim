@@ -22,11 +22,11 @@ An online demo is available at http://obscure-fortress-6603.herokuapp.com/
 
 * Users can experience an unlimited number of draft and sealed pool simulations.
 
-* Features full art and all cards from the Battle for Zendikar expansion set.
+* Features full art and card set from the Battle for Zendikar expansion.
 
-* Users can review their draft card choices after they make them.
+* Users can review their draft and sealed card choices after they make them.
 
-* Simulated opponents make educated picks in the draft using card rankings and color balancing.
+* Draft simulation opponents make educated picks in the draft using card rankings and color balancing.
 
 # Installation
 
@@ -44,8 +44,6 @@ After cloning the repo and installing the gems, you can run `rails s` to start y
 # Development
 
 * The opponent algorithm for picking cards is still in the works. As it stands, the computer picks the highest value card in each pack at the start of the draft. Once each computer has seven cards chosen, it starts to pick cards the colors it is deepest in.
-
-* The sealed portion is still a work in progress. Users will be able to choose cards within the UI in the future and edit their card pools.
 
 # License
 
