@@ -6,7 +6,7 @@
   <br>
   <div class = "selector">
     <%@startingpack.each do |card|%>
-      <%=link_to image_tag("#{card.id}.jpg", :border=>0), "Select", id: card.id %>
+      <%=image_tag("#{card.id}.jpg", :border=>0, id: card.id, class: 'cardimage') %>
     <%end%>
   </div>
 </div>
