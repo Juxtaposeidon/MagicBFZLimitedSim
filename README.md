@@ -12,7 +12,7 @@ More detailed rules can be found here: http://archive.wizards.com/Magic/magazine
 
 Sealed magic is a bit simpler. You open up six packs and construct the best minimum-40 card deck possible.
 
-For both modes, lands are provided on the side and do not cost any draft picks.
+For both modes, basic lands are provided on the side and do not cost any draft picks.
 
 # Demo
 
@@ -43,7 +43,7 @@ After cloning the repo and installing the gems, you can run `rails s` to start y
 
 # Development
 
-* The opponent algorithm for picking cards is still in the works. As it stands, the computer picks the highest value card in each pack at the start of the draft. Once each computer has seven cards chosen, it starts to pick cards the colors it is deepest in.
+* The opponent algorithm for picking cards is still in the works. As it stands, the computer picks the highest value card in each pack at the start of the draft. Once each computer has seven cards chosen, it starts to pick the best cards the colors it is deepest in.
 
 # License
 
