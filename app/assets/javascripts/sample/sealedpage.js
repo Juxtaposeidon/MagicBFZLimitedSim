@@ -17,15 +17,16 @@ $(document).ready(function(){
     var cardid = $(this).attr('id');
     $(this).remove()
     $("#" + cardid).show();
+    $("#cardhighlight").hide();
   })
 
   $("#sealedpool").on("mouseover", "li", function(){
-    $("#cardhighlight").toggle();
+    $("#cardhighlight").show();
     $("#cardhighlight").html( "<img src=/assets/" + $(this).data("cardid") + ".jpg>")
   })
 
   $("#sealedpool").on("mouseout", "li", function(){
-    $("#cardhighlight").toggle();
+    $("#cardhighlight").hide();
     $("#cardhighlight").html()
   })
 })
