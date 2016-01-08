@@ -6,18 +6,6 @@ $(document).ready(function(){
     var cardclass = $(this).attr('class')
     $(this).toggle();
     $('#sealedpool ol').append("<li><span class='"+ cardclass + " poolcard' id='" + cardid + "'>" + card + "</span></li>")
-    // var card = {
-    //   id: $(this).attr("id")
-    // };
-    // $.ajax({
-    //   data: card,
-    //   method: "GET",
-    //   url: '/sample/addcard'
-    // })
-    // .done(function(result){
-    //   $('.carddisplay').html(result['partial']);
-    //   $('#sealedpool ol').append(result['cardname'])
-    // })
   })
 
   $('#sealedpool').on('click', '.poolcard', function(){
