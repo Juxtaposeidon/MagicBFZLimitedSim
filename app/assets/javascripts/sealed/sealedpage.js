@@ -4,7 +4,6 @@ $(document).ready(function(){
     var card = $(this).data('name');
     var placeid = $(this).attr('id');
     var cardid = $(this).data('cardid')
-    console.log(cardid)
     var cardclass = $(this).attr('class')
     $(this).toggle();
     $('#sealedpool ol').append("<li>" + card + " (-)</li>")
