@@ -1,0 +1,168 @@
+/* line 1, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+.White {
+  color: white;
+}
+
+/* line 5, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+.Black {
+  color: black;
+}
+
+/* line 9, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+.Blue {
+  color: #3300CC;
+}
+
+/* line 13, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+.Green {
+  color: #00ff7f;
+}
+
+/* line 17, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+.Red {
+  color: #FF2652;
+}
+
+/* line 21, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+.Colorless {
+  color: #B0B0B0;
+}
+
+/* line 25, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+.White.Red, .White.Green, .Blue.Red, .Blue.Green, .White.Black, .Black.Green, .Black.Red, .Blue.Black, .Black.Red, .Red.Green, .White.Blue {
+  color: #FFD700;
+}
+
+/* line 29, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+#pooltitle {
+  margin-top: 20px;
+}
+
+/* line 33, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+.pooltd {
+  vertical-align: text-top;
+  height: 200px;
+  font-size: .85em;
+}
+
+/* line 39, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+.cards {
+  margin-top: 60px;
+  width: 70%;
+}
+
+/* line 44, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/draft.scss */
+#cardhighlight {
+  display: none;
+  position: fixed;
+  background-color: black;
+  left: 52%;
+  top: 20%;
+  border-style: solid;
+  border-width: 5px;
+}
+/* line 5, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/sealed.scss */
+.topmargin {
+  margin-top: 60px;
+}
+
+/* line 9, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/sealed.scss */
+.sealedcards {
+  margin-top: 60px;
+  width: 70%;
+}
+
+/* line 14, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/sealed.scss */
+#sealedpool {
+  margin-top: 60px;
+  vertical-align: top;
+  height: 100%;
+}
+
+/* line 20, /Users/Juxtaposeidon/Desktop/MTGDraft/MTGDrafter/app/assets/stylesheets/sealed.scss */
+.cardimage {
+  cursor: pointer;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+#pool{
+  position:fixed;
+  bottom:0;
+  right: 0;
+  height:100%;
+  background-color: #685757;
+  width: 30%;
+  top: 5%;
+  z-index: 0;
+}
+
+
+#topbar{
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  font-size: 1.2em;
+  color: white;
+  top: 0;
+  position: fixed;
+  z-index: 1;
+}
+
+.menuitem{
+  width:225px;
+  text-align: center;
+}
+
+.slideshow{
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  padding: 10px;
+  margin-top: 100px;
+}
+
+.slideshow img{
+  width:100%;
+  height: auto;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Andale Mono';
+  font-size: 1em;
+}
+
+h3{
+  text-align: center;
+  margin: 3px;
+}
+
+h5{
+  text-align: center;
+  margin: 1px;
+}
+
+table{
+  width: 100%;
+  height: 100%;
+}
