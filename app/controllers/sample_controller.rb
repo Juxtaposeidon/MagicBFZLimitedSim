@@ -6,13 +6,16 @@ class SampleController < ApplicationController
     end
     @@pack.flatten!
     @@pack.sort_by!{|card| [card.color, card.name]}
-    # @@pack.each_with_index do |card,place|
+    # multiholder = []
+    # @@pack.each do |card|
     #   if card.color2 != nil
-    #     placeholder = card
-    #     @@pack.delete_at(place)
-    #     @@pack.push(placeholder)
+    #     multiholder << card
     #   end
     # end
+    # @@pack.delete_if {|card| card.color2 != nil}
+    # @@pack += multiholder
+    @@pack = @@pack.partition {|card| card.color2 != nil}
+    @@pack.flatten!
     @pack = @@pack
   end
 
