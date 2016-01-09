@@ -16,7 +16,7 @@ For both modes, basic lands are provided on the side and do not cost any draft p
 
 # Demo
 
-An online demo is available at http://obscure-fortress-6603.herokuapp.com/
+An online demo is available at http://bfzlimitedsim.herokuapp.com/ 
 
 # Features
 
