@@ -9,21 +9,27 @@ $(document).ready(function(){
       method: "PUT",
       data: card
     })
-    .done(function(result){
-      $('.selector').html(result['partial'])
-      if(counter < 14){
-        $("#draftedcards").append(result['cardname'] + '  ')
-      }
-      else if(counter < 28){
-        $("#draftedcards2").append(result['cardname'] + '  ')
-      }
-      else{
-        $("#draftedcards3").append(result['cardname'] + '  ')
-      }
-      counter++;
-      if(counter == 42){
-        $('div.selector').html("<H3>The draft is now over</H3>")
-      }
+    .done(function(){
+      $.ajax({
+        url: '/draft',
+        method: "GET"
+      })
+      .done(function(result){
+        $('.selector').html(result['partial'])
+        if(counter < 14){
+          $("#draftedcards").append(result['cardname'] + '  ')
+        }
+        else if(counter < 28){
+          $("#draftedcards2").append(result['cardname'] + '  ')
+        }
+        else{
+          $("#draftedcards3").append(result['cardname'] + '  ')
+        }
+        counter++;
+        if(counter == 42){
+          $('div.selector').html("<H3>The draft is now over</H3>")
+        }
+      })
     })
   })
   $("#pool").on("mouseover", ".card", function(){
