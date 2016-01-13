@@ -1,5 +1,5 @@
 class SealedController < ApplicationController
-  def index
+  def new
     @@pack = []
     6.times do
       @@pack += Pack.new.contents
