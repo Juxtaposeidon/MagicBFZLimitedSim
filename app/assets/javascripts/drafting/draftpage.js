@@ -17,13 +17,13 @@ $(document).ready(function(){
       .done(function(result){
         $('.selector').html(result['partial'])
         if(counter < 14){
-          $("#draftedcards").append(result['cardname'] + '  ')
+          $("#draftedcards").append('[' + result['cardname'] + ']  ')
         }
         else if(counter < 28){
-          $("#draftedcards2").append(result['cardname'] + '  ')
+          $("#draftedcards2").append('[' + result['cardname'] + ']  ')
         }
         else{
-          $("#draftedcards3").append(result['cardname'] + '  ')
+          $("#draftedcards3").append('[' + result['cardname'] + ']  ')
         }
         counter++;
         if(counter == 42){
