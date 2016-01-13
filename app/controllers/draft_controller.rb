@@ -4,8 +4,8 @@ class DraftController < ApplicationController
     @startingpack = @@newdraft.player1.currentpack.contents
   end
 
-  def addcard
-    pickedcard = Card.find(params['id'])
+  def update
+    pickedcard = Card.find(params['cardid'])
     @@newdraft.player1.addPool(pickedcard)
     @@newdraft.player1.removeCard(pickedcard)
     @@newdraft.cpuplayers.each {|player| player.cpuChoose}
@@ -18,7 +18,6 @@ class DraftController < ApplicationController
       :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{params['id']}'>" + pickedcard.name + "</span>",
       :partial => render_to_string(:partial => 'draft/draft')
     }
-
   end
 
 end
