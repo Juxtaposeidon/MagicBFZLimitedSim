@@ -2,11 +2,11 @@ $(document).ready(function(){
   var counter = 0
   $(".cards").on("click", "img", function(event){
     var card = {
-      id: $(this).attr("id")
+      cardid: $(this).attr("id")
     };
     $.ajax({
-      url: '/draft/addcard',
-      method: "GET",
+      url: '/draft/update',
+      method: "PUT",
       data: card
     })
     .done(function(result){
