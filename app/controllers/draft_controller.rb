@@ -13,9 +13,13 @@ class DraftController < ApplicationController
     if @@newdraft.player1.pool.length % 14 == 0
       @@newdraft.newPacks
     end
+  end
+
+  def index
     @pack = @@newdraft.player1.currentpack.contents
+    pickedcard=@@newdraft.player1.pool.last
     render :json => {
-      :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{params['id']}'>" + pickedcard.name + "</span>",
+      :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{pickedcard.id}'>" + pickedcard.name + "</span>",
       :partial => render_to_string(:partial => 'draft/draft')
     }
   end
