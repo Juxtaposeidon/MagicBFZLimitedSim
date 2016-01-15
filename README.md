@@ -37,6 +37,13 @@ Clone this repo onto your desktop and run `bundle install` to retrieve the neces
   bundle install
   ```
 
+After installing the gems, you need to set up the database and import all the app's cards via seed file.
+
+  ```
+  rake db:create
+  rake db:migrate
+  rake db:seed
+  ```
 # Usage
 
 After cloning the repo and installing the gems, you can run `rails s` to start your local server. The app can then be accessed at http://localhost:3000
