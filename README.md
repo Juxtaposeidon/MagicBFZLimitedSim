@@ -1,16 +1,16 @@
 # Magic the Gathering Limited Simulator: Battle for Zendikar
 
-This is a Rails app that simulates the draft and sealed play modes for Magic the Gathering. For drafts, users can pick their cards alongside seven artificial opponents to build a formidable deck. For the sealed portion, the app displays a pool of six opened packs from which the user can choose cards.
+This is a Rails app that simulates the draft and sealed card picking stages for Magic: the Gathering. For drafts, users can pick their cards alongside seven artificial opponents to build a formidable deck. For the sealed portion, the app displays a pool of six opened packs from which the user can choose cards.
 
 ![Draftscreen](/app/assets/images/mtgdrafter.png)
 
 # Game Instructions
 
-The basic gist of a Magic draft is that players each start with three booster packs. After opening up the first pack, a player chooses the "best" card in it and passes the remaining cards to the left. Once the player receives the next pack of cards from the right, the player chooses another card from the pool and passes the remainder to the left. The process repeats itself until no more cards are left in the first round. This goes on for two more rounds; however, card packs are passed to the right in the second round after each pick. In the third and last round, card packs go to the left.
+The basic gist of a Magic draft is that players each start with three booster packs. After opening up the first pack, a player chooses the "best" card in it and passes the remaining cards to the left. Once the player receives the next pack of cards from the right, the player chooses another card from the pack and passes the remainder to the left. The process repeats itself until no more cards are left in the first round. This goes on for two more rounds; however, card packs are passed to the right in the second round after each pick. In the third and last round, card packs go to the left.
 
 More detailed rules can be found here: http://archive.wizards.com/Magic/magazine/article.aspx?x=mtg/daily/li/272
 
-Sealed magic is a bit simpler. You open up six packs and construct the best minimum-40 card deck possible.
+Sealed magic is a bit simpler. You open up six packs and construct the best minimum-40-card deck possible.
 
 For both modes, basic lands are provided on the side and do not cost any draft picks.
 
