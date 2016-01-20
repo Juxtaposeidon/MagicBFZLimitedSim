@@ -1,13 +1,10 @@
 $(document).ready(function(){
   var counter = 0
   $(".cards").on("click", "img", function(event){
-    var card = {
-      cardid: $(this).attr("id")
-    };
     $.ajax({
       url: '/draft/update',
       method: "PUT",
-      data: card
+      data: {cardid: $(this).attr("id")}
     })
     .done(function(){
       $.ajax({
@@ -15,7 +12,7 @@ $(document).ready(function(){
         method: "GET"
       })
       .done(function(result){
-        $('.selector').html(result['partial'])
+        $('.cardpacksection').html(result['partial'])
         if(counter < 14){
           $("#draftedcards").append('[' + result['cardname'] + ']  ')
         }
@@ -27,19 +24,19 @@ $(document).ready(function(){
         }
         counter++;
         if(counter == 42){
-          $('div.selector').html("<H3>The draft is now over</H3>")
+          $('.cardpacksection').html("<H3>The draft is now over</H3>")
         }
       })
     })
   })
   $("#pool").on("mouseover", ".card", function(){
-    $("#cardhighlight").toggle();
-    $("#cardhighlight").html( "<img src=/assets/" + $(this).attr("id") + ".jpg>")
+    $("#highlightedcard").toggle();
+    $("#highlightedcard").html( "<img src=/assets/" + $(this).attr("id") + ".jpg>")
   })
 
   $("#pool").on("mouseout", ".card", function(){
-    $("#cardhighlight").toggle();
-    $("#cardhighlight").html()
+    $("#highlightedcard").toggle();
+    $("#highlightedcard").html()
   })
 
 })
