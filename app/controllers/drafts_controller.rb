@@ -15,7 +15,7 @@ class DraftsController < ApplicationController
     end
   end
 
-  def index
+  def show
     @pack = @@draft.player1.currentpack.contents
     pickedcard=@@draft.player1.pool.last
     render :json => {

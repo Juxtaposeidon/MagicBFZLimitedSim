@@ -8,7 +8,7 @@ $(document).ready(function(){
     })
     .done(function(){
       $.ajax({
-        url: '/drafts',
+        url: '/drafts/show',
         method: "GET"
       })
       .done(function(result){
