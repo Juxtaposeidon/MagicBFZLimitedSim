@@ -1,4 +1,4 @@
-class FullsetController < ApplicationController
+class CardsController < ApplicationController
   def index
     @cards = Card.where(color2: nil)
     @cards = @cards.sort_by{|card| [card.color, card.name]}

@@ -1,4 +1,4 @@
-class DraftController < ApplicationController
+class DraftsController < ApplicationController
   def new
     @@draft = Draft.new
     @startingpack = @@draft.player1.currentpack.contents
@@ -20,7 +20,7 @@ class DraftController < ApplicationController
     pickedcard=@@draft.player1.pool.last
     render :json => {
       :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{pickedcard.id}'>" + pickedcard.name + "</span>",
-      :partial => render_to_string(:partial => 'draft/draft')
+      :partial => render_to_string(:partial => 'drafts/draft')
     }
   end
 

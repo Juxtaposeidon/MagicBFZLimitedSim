@@ -2,13 +2,13 @@ $(document).ready(function(){
   var counter = 0
   $(".cards").on("click", "img", function(event){
     $.ajax({
-      url: '/draft/update',
+      url: '/drafts/update',
       method: "PUT",
       data: {cardid: $(this).attr("id")}
     })
     .done(function(){
       $.ajax({
-        url: '/draft',
+        url: '/drafts',
         method: "GET"
       })
       .done(function(result){
