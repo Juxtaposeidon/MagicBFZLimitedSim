@@ -11,7 +11,7 @@ $(document).ready(function(){
       })
       .done(function(){
         $.ajax({
-          url: '/drafts/show',
+          url: '/drafts',
           method: "GET"
         })
         .done(function(result){
