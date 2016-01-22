@@ -1,19 +1,18 @@
 class SealedController < ApplicationController
   def new
-    @@pack = []
+    @pack = []
     6.times do
-      @@pack += Pack.new.contents
+      @pack += Pack.new.contents
     end
-    @@pack.sort_by!{|card| [card.color, card.name]}
+    @pack.sort_by!{|card| [card.color, card.name]}
     multiholder = []
-    @@pack.delete_if do |card|
+    @pack.delete_if do |card|
       unless card.color2.nil?
         multiholder << card
         true
       end
     end
-    @@pack += multiholder
-    @pack = @@pack
+    @pack += multiholder
   end
 
 end
