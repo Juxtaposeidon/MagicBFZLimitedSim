@@ -1,7 +1,7 @@
 class DraftsController < ApplicationController
   def new
     @@draft = Draft.new
-    @startingpack = @@draft.player1.currentpack.contents
+    @cardpack = @@draft.player1.currentpack.contents
   end
 
   def update

@@ -1,13 +1,10 @@
 <%= javascript_include_tag 'drafting/draftpage.js'%>
-
 <div class = "cards">
   <div id = "highlightedcard"></div>
   <h3>Battle for Zendikar Draft</h3>
   <br>
   <div class = "cardpacksection">
-    <%@startingpack.each do |card|%>
-      <%=image_tag("#{card.id}.jpg", :border=>0, id: card.id, class: 'cardimage') %>
-    <%end%>
+    <%= react_component 'Draftpack', {cards: @cardpack}%>
   </div>
 </div>
 <div id="pool">
