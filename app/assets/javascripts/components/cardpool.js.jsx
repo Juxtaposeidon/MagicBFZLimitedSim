@@ -13,6 +13,7 @@ var Cardpool = React.createClass({
   },
   getCards: function(pick){
     console.log(pick)
+    var react = this
     var nospam = 0
     if(nospam==0){
       nospam = 1
@@ -26,9 +27,10 @@ var Cardpool = React.createClass({
           url: '/drafts',
           method: "GET"
         }).done(function(result){
-          console.log(result)
           nospam = 0
-          $('.cardpacksection').html(result['partial'])
+          react.setState({
+            cards: result['pack']
+          })
           if(counter < 14){
             $("#draftedcards").append('[' + result['cardname'] + ']  ')
           }
