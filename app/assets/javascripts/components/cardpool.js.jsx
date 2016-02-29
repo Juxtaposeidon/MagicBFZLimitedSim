@@ -11,8 +11,8 @@ var Cardpool = React.createClass({
       cards: this.props.cards
     }
   },
+
   getCards: function(pick){
-    console.log(pick)
     var react = this
     var nospam = 0
     if(nospam==0){
@@ -50,14 +50,15 @@ var Cardpool = React.createClass({
   },
   render: function(){
     var react = this
-    var cardpack = this.state.cards.map(function(item){
-      return (
-        <img src={'/assets/' + item.id} className="cardimage" key={item.id} onClick={react.getCards.bind(react, item.id)}></img>
-      )
-    })
+
     return(
       <div>
-        {cardpack}
+        {this.state.cards.map(function(item){
+          var handleclick=this.getCards.bind(this, item.id)
+          return (
+            <img src={'/assets/' + item.id} className="cardimage" key={item.id} onClick={handleclick}></img>
+          )
+        }, this)}
       </div>
     )
   }
