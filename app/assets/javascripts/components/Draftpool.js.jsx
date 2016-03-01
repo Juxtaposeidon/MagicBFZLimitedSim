@@ -1,15 +1,7 @@
 var counter = 0
 var Draftpool = React.createClass({
-  getInitialProps: function(){
-    return{
-      cards: []
-    }
-  },
-
   getInitialState: function(){
-    return{
-      cards: this.props.cards
-    }
+    return{cards: this.props.cards}
   },
 
   getCards: function(pick){
@@ -19,7 +11,7 @@ var Draftpool = React.createClass({
       nospam = 1
       $.ajax({
         url: '/drafts/update',
-        method: "PUT",
+        method: 'PUT',
         data: {'cardid': pick}
       })
       .done(function(){
@@ -50,15 +42,15 @@ var Draftpool = React.createClass({
     }
   },
   render: function(){
+    var cards = this.state.cards.map(function(item){
+      return <Card
+                onClick={this.getCards.bind(this,item.id)}
+                key={item.id}
+                id={item.id}
+              />
+    }, this)
     return(
-      <div>
-        {this.state.cards.map(function(item){
-          var handleclick=this.getCards.bind(this, item.id)
-          return <Card onClick={handleclick} key={item.id} id={item.id}/>
-            // <img src={'/assets/' + item.id} className="cardimage" key={item.id} onClick={handleclick}></img>
-        }, this)}
-      </div>
+      <div>{cards}</div>
     )
   }
 })
-var counter = 0

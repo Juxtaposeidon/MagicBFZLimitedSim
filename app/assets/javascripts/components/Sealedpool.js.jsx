@@ -1,13 +1,6 @@
 var Sealedpool = React.createClass({
-  getInitialProps: function(){
-    return{
-      cards:[]
-    }
-  },
   getInitialState: function(){
-    return{
-      cards:this.props.cards
-    }
+    return{cards:this.props.cards}
   },
   // addCard:function(index, id, name, color, color2, card){
   //   console.log(card)
@@ -17,13 +10,18 @@ var Sealedpool = React.createClass({
     var cardlist = this.state.cards.map(function(item){
       ind = this.state.cards.indexOf(item)
       // var handleclick=this.addCard.bind(this, ind, item.id, item.name, item.color, item.color2, item)
-      return <Card key={ind} id={item.id} name={item.name} color1={item.color} color2={item.color2} index={ind}/>
+      return <Card
+                key={ind}
+                id={item.id}
+                name={item.name}
+                color1={item.color}
+                color2={item.color2}
+                index={ind}
+             />
     }, this)
 
     return(
-      <div>
-      {cardlist}
-      </div>
+      <div>{cardlist}</div>
     )
   }
 })

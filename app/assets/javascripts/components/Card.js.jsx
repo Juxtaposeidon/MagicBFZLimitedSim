@@ -1,16 +1,4 @@
 var Card = React.createClass({
-  getInitialProps: function(){
-      return{
-        id: undefined,
-        image: undefined,
-        onClick: undefined,
-        name: undefined,
-        index: undefined,
-        color1: undefined,
-        color2: undefined
-      }
-    },
-
   getInitialState: function(){
     return{
       id: this.props.id,
@@ -24,7 +12,16 @@ var Card = React.createClass({
   },
   render: function(){
     return(
-        <img src={this.state.image} className="cardimage" onClick={this.props.onClick} data-name={this.state.name} data-color={this.state.color1} data-color2={this.state.color2} data-cardid={this.state.id} id={this.state.index}></img>
+        <img
+          src={this.state.image}
+          className="cardimage"
+          onClick={this.props.onClick}
+          data-name={this.state.name}
+          data-color={this.state.color1}
+          data-color2={this.state.color2}
+          data-cardid={this.state.id}
+          id={this.state.index}
+        />
     )
   }
 })
