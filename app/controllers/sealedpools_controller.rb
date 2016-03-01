@@ -1,4 +1,4 @@
-class SealedController < ApplicationController
+class SealedpoolsController < ApplicationController
   def new
     @pack = []
     6.times do

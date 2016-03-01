@@ -1,8 +1,9 @@
 class Player
-  attr_reader :pool, :currentpack, :colorpool, :color1, :color2
+  attr_reader :pool, :currentpack, :colordepth, :color1, :color2, :colorcount
   def initialize
     @pool = []
-    @colorpool = Hash.new(0)
+    @colordepth = Hash.new(0)
+    @colorcount = Hash.new(0)
     @color1
     @color2
   end
@@ -13,11 +14,13 @@ class Player
 
   def addPool(card)
     @pool << card
+    @colorcount[card.color] += 1
     if card.color != "Colorless"
-      @colorpool[card.color] += (1 * card.rank)
+      @colordepth[card.color] += card.rank
     end
     if card.color2 != nil
-      @colorpool[card.color2] += (1 * card.rank)
+      @colordepth[card.color2] += card.rank
+      @colorcount[card.color2] += 1
     end
   end
 
@@ -48,13 +51,9 @@ class Player
     @currentpack = newpack
   end
 
-  def showPool
-    p @colorpool
-  end
-
   def pickColor
-    @color1 = @colorpool.sort_by{|k,v| v}[@colorpool.length-1][0]
-    @color2 = @colorpool.sort_by{|k,v| v}[@colorpool.length-2][0]
+    @color1 = @colordepth.sort_by{|k,v| v}[@colordepth.length-1][0]
+    @color2 = @colordepth.sort_by{|k,v| v}[@colordepth.length-2][0]
   end
 
   def onColor(card)
