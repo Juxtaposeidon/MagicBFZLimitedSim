@@ -26,7 +26,8 @@ var Cardpool = React.createClass({
         $.ajax({
           url: '/drafts',
           method: "GET"
-        }).done(function(result){
+        })
+        .done(function(result){
           nospam = 0
           react.setState({
             cards: result['pack']
@@ -49,8 +50,6 @@ var Cardpool = React.createClass({
     }
   },
   render: function(){
-    var react = this
-
     return(
       <div>
         {this.state.cards.map(function(item){
