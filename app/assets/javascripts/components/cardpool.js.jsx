@@ -55,49 +55,34 @@ var Cardpool = React.createClass({
         {this.state.cards.map(function(item){
           var handleclick=this.getCards.bind(this, item.id)
           return (
-            <img src={'/assets/' + item.id} className="cardimage" key={item.id} onClick={handleclick}></img>
+            <Card onClick={handleclick} key={item.id} id={item.id}/>
+            // <img src={'/assets/' + item.id} className="cardimage" key={item.id} onClick={handleclick}></img>
           )
         }, this)}
       </div>
     )
   }
 })
-// var counter = 0
-// var Card = React.createClass({
-//   getInitialProps: function(){
-//       return{
-//         id: undefined,
-//         image: undefined
-//       }
-//     },
+var counter = 0
+var Card = React.createClass({
+  getInitialProps: function(){
+      return{
+        id: undefined,
+        image: undefined,
+        onClick: undefined
+      }
+    },
 
-//   getInitialState: function(){
-//     return{
-//       id: this.props.id,
-//       image: "/assets/" + this.props.id
-//     }
-//   },
-
-//   getCards: function(pick){
-//     var nospam = 0
-//     if(nospam==0){
-//       nospam = 1
-//       $.ajax({
-//         url: '/drafts/update',
-//         method: "PUT",
-//         data: {'cardid': pick}
-//       })
-//       .done(function(){
-//         $.ajax({
-//           url: '/drafts',
-//           method: "GET"
-//         })
-//       })
-//     }
-//   },
-//   render: function(){
-//     return(
-//         <img src={this.state.image} className="cardimage" onClick={this.getCards.bind(this, this.state.id)}></img>
-//     )
-//   }
-// })
+  getInitialState: function(){
+    return{
+      id: this.props.id,
+      image: "/assets/" + this.props.id,
+      onClick: this.props.onClick
+    }
+  },
+  render: function(){
+    return(
+        <img src={this.state.image} className="cardimage" onClick={this.props.onClick}></img>
+    )
+  }
+})
