@@ -54,10 +54,8 @@ var Draftpool = React.createClass({
       <div>
         {this.state.cards.map(function(item){
           var handleclick=this.getCards.bind(this, item.id)
-          return (
-            <Card onClick={handleclick} key={item.id} id={item.id}/>
+          return <Card onClick={handleclick} key={item.id} id={item.id}/>
             // <img src={'/assets/' + item.id} className="cardimage" key={item.id} onClick={handleclick}></img>
-          )
         }, this)}
       </div>
     )

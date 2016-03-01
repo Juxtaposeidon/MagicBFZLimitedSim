@@ -3,7 +3,7 @@ $(document).ready(function(){
     var card = $(this).data('name');
     var cardlocation = $(this).attr('id');
     var cardid = $(this).data('cardid')
-    var cardcolors = $(this).attr('class')
+    var cardcolors = $(this).data('color') + " " + $(this).data('color2')
     $(this).toggle();
     $('#sealedpool ol').append("<li>" + card + " (-)</li>")
     $('li').last().addClass(cardcolors)
