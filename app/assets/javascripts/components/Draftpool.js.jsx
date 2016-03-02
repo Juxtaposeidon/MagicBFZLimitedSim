@@ -5,7 +5,9 @@ var Draftpool = React.createClass({
       cards: this.props.cards,
       pool1: [],
       pool2: [],
-      pool3: []
+      pool3: [],
+      highlightedcard: this.props.highlightedcard,
+      hover: false
     }
   },
 
@@ -48,7 +50,11 @@ var Draftpool = React.createClass({
   },
 
   highlightCard: function(card){
-    console.log(card)
+    this.setState({highlightedcard: "/assets/" + card, hover: true})
+  },
+
+  hideCard: function(thing){
+    this.setState({hover: false})
   },
 
   render: function(){
@@ -59,7 +65,6 @@ var Draftpool = React.createClass({
                 id={item.id}
               />
     }, this)
-
     var pool1 = this.state.pool1.map(function(item){
       return <SelectedCard
         id={item.id}
@@ -67,7 +72,8 @@ var Draftpool = React.createClass({
         name={item.name}
         color1={item.color}
         color2={item.color2}
-        onMouseOver={this.highlightCard}
+        onMouseEnter={this.highlightCard}
+        onMouseLeave={this.hideCard}
       />
     }, this)
     var pool2 = this.state.pool2.map(function(item){
@@ -78,10 +84,13 @@ var Draftpool = React.createClass({
       var classes = item.color + " card " + item.color2
       return <span className={classes} id={item.id}>[{item.name}]</span>
     })
+    if(this.state.hover){
+      var highlighted= this.state.highlightedcard
+    }
     return (
       <div>
         <div className = "cards">
-        <div id = "highlightedcard" />
+        <div id = "highlightedcard"><img src={highlighted}/></div>
           <h3>Battle for Zendikar Draft</h3>
           <br />
           <div className = "cardpacksection">

@@ -3,18 +3,19 @@ var SelectedCard = React.createClass({
     return{
       name: this.props.name,
       id: this.props.id,
-      onMouseOver: this.props.onMouseOver,
+      onMouseEnter: this.props.onMouseEnter,
+      onMouseLeave: this.props.onMouseLeave,
       colors: this.props.color1 + " card " + this.props.color2,
     }
   },
 
   _onEnter: function(){
-    this.state.onMouseOver(this.state.id)
+    this.state.onMouseEnter(this.state.id)
   },
 
   render: function(){
     return(
-      <span className={this.state.colors} id={this.state.id} onMouseOver={this._onEnter}>[{this.state.name}]</span>
+      <span className={this.state.colors} id={this.state.id} onMouseEnter={this._onEnter} onMouseLeave={this.state.onMouseLeave}>[{this.state.name}]</span>
     )
   }
 })

@@ -42,11 +42,14 @@
 }
 
 #highlightedcard{
-  display: none;
   position: fixed;
-  background-color: black;
-  left: 52%;
+  height:100px;
+  width:100px;
+  left: 57%;
   top: 20%;
-  border-style: solid;
-  border-width: 5px;
+  z-index: 1;
+}
+
+#cardpooltable{
+  padding-left: 30px;
 }
