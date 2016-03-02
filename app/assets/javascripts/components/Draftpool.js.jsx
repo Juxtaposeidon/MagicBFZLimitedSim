@@ -67,54 +67,65 @@ var Draftpool = React.createClass({
     }, this)
     var pool1 = this.state.pool1.map(function(item){
       return <SelectedCard
-        id={item.id}
-        key={item.id}
-        name={item.name}
-        color1={item.color}
-        color2={item.color2}
-        onMouseEnter={this.highlightCard}
-        onMouseLeave={this.hideCard}
-      />
+                id={item.id}
+                name={item.name}
+                color1={item.color}
+                color2={item.color2}
+                onMouseEnter={this.highlightCard}
+                onMouseLeave={this.hideCard}
+              />
     }, this)
     var pool2 = this.state.pool2.map(function(item){
-      var classes = item.color + " card " + item.color2
-      return <span className={classes} id={item.id}>[{item.name}]</span>
-    })
+      return <SelectedCard
+                id={item.id}
+                name={item.name}
+                color1={item.color}
+                color2={item.color2}
+                onMouseEnter={this.highlightCard}
+                onMouseLeave={this.hideCard}
+              />
+    }, this)
     var pool3 = this.state.pool3.map(function(item){
-      var classes = item.color + " card " + item.color2
-      return <span className={classes} id={item.id}>[{item.name}]</span>
-    })
+      return <SelectedCard
+              id={item.id}
+              name={item.name}
+              color1={item.color}
+              color2={item.color2}
+              onMouseEnter={this.highlightCard}
+              onMouseLeave={this.hideCard}
+            />
+    }, this)
     if(this.state.hover){
       var highlighted= this.state.highlightedcard
     }
     return (
       <div>
-        <div className = "cards">
-        <div id = "highlightedcard"><img src={highlighted}/></div>
+        <div className = 'cards'>
+        <div id = 'highlightedcard'><img src={highlighted}/></div>
           <h3>Battle for Zendikar Draft</h3>
           <br />
-          <div className = "cardpacksection">
+          <div className = 'cardpacksection'>
             {cards}
           </div>
         </div>
-        <div id="pool">
-          <table id ="cardpooltable">
+        <div id='pool'>
+          <table id ='cardpooltable'>
           <tbody>
             <tr>
-              <td className = "pooltd">
-                <h3 id="pooltitle">Card pool</h3>
+              <td className = 'pooltd'>
+                <h3 id='pooltitle'>Card pool</h3>
                 <h4>Pack 1</h4>
                 {pool1}
               </td>
             </tr>
             <tr>
-              <td className = "pooltd">
+              <td className = 'pooltd'>
                 <h4>Pack 2</h4>
                 {pool2}
               </td>
             </tr>
             <tr>
-              <td className = "pooltd">
+              <td className = 'pooltd'>
                 <div>
                   <h4>Pack 3</h4>
                   {pool3}
