@@ -10,12 +10,19 @@ var Card = React.createClass({
       color2: this.props.color2
     }
   },
+
+  _onClick: function(){
+    if(this.props.onClick!= undefined){
+      this.props.onClick(this.props.id)
+    }
+  },
+
   render: function(){
     return(
         <img
           src={this.state.image}
           className="cardimage"
-          onClick={this.props.onClick}
+          onClick={this._onClick}
           data-name={this.state.name}
           data-color={this.state.color1}
           data-color2={this.state.color2}

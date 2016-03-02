@@ -44,7 +44,7 @@ var Draftpool = React.createClass({
   render: function(){
     var cards = this.state.cards.map(function(item){
       return <Card
-                onClick={this.getCards.bind(this,item.id)}
+                onClick={this.getCards}
                 key={item.id}
                 id={item.id}
               />
