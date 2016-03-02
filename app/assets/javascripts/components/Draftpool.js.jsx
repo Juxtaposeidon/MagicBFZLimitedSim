@@ -3,9 +3,7 @@ var Draftpool = React.createClass({
   getInitialState: function(){
     return{
       cards: this.props.cards,
-      pool1: [],
-      pool2: [],
-      pool3: [],
+      pool: [],
       highlightedcard: this.props.highlightedcard,
       hover: false
     }
@@ -31,15 +29,7 @@ var Draftpool = React.createClass({
           component.setState({
             cards: result['pack']
           })
-          if(counter < 14){
-            component.setState({pool1: component.state.pool1.concat(result['pick'])})
-          }
-          else if(counter < 28){
-            component.setState({pool2: component.state.pool2.concat(result['pick'])})
-          }
-          else{
-            component.setState({pool3: component.state.pool3.concat(result['pick'])})
-          }
+          component.setState({pool: component.state.pool.concat(result['pick'])})
           counter++;
           if(counter == 42){
             $('.cardpacksection').html("<H3>The draft is now over</H3>")
@@ -65,7 +55,7 @@ var Draftpool = React.createClass({
                 id={item.id}
               />
     }, this)
-    var pool1 = this.state.pool1.map(function(item){
+    var wholepool = this.state.pool.map(function(item){
       return <SelectedCard
                 id={item.id}
                 name={item.name}
@@ -75,26 +65,10 @@ var Draftpool = React.createClass({
                 onMouseLeave={this.hideCard}
               />
     }, this)
-    var pool2 = this.state.pool2.map(function(item){
-      return <SelectedCard
-                id={item.id}
-                name={item.name}
-                color1={item.color}
-                color2={item.color2}
-                onMouseEnter={this.highlightCard}
-                onMouseLeave={this.hideCard}
-              />
-    }, this)
-    var pool3 = this.state.pool3.map(function(item){
-      return <SelectedCard
-              id={item.id}
-              name={item.name}
-              color1={item.color}
-              color2={item.color2}
-              onMouseEnter={this.highlightCard}
-              onMouseLeave={this.hideCard}
-            />
-    }, this)
+    var pool1 = wholepool.slice(0,14)
+    var pool2 = wholepool.slice(14,28)
+    var pool3 = wholepool.slice(28,42)
+
     if(this.state.hover){
       var highlighted= this.state.highlightedcard
     }
