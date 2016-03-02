@@ -20,7 +20,7 @@ class DraftsController < ApplicationController
       @pack = @@draft.player1.currentpack.contents
       pickedcard=@@draft.player1.pool.last
       render :json => {
-        :pick => pickedcard, :pack => @pack, :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{pickedcard.id}'>" + pickedcard.name + "</span>"
+        :pick => pickedcard, :pack => @pack
       }
       # render :json => {
         # :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{pickedcard.id}'>" + pickedcard.name + "</span>",
