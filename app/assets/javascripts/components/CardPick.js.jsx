@@ -5,6 +5,7 @@ var CardPick = React.createClass({
       id: this.props.id,
       onMouseEnter: this.props.onMouseEnter,
       onMouseLeave: this.props.onMouseLeave,
+      onClick: this.props.onClick,
       colors: this.props.color + " card " + this.props.color2,
     }
   },
@@ -13,9 +14,15 @@ var CardPick = React.createClass({
     this.state.onMouseEnter(this.state.id)
   },
 
+  _onClick: function(){
+    if(this.props.onClick!= undefined){
+      this.props.onClick(this.props)
+    }
+  },
+
   render: function(){
     return(
-      <span className={this.state.colors} id={this.state.id} onMouseEnter={this._onEnter} onMouseLeave={this.state.onMouseLeave}>[{this.state.name}]</span>
+      <span className={this.state.colors} id={this.state.id} onClick={this._onClick} onMouseEnter={this._onEnter} onMouseLeave={this.state.onMouseLeave}>[{this.state.name}]</span>
     )
   }
 })

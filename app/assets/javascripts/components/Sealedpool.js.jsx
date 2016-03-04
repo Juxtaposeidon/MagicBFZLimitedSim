@@ -7,15 +7,41 @@ var Sealedpool = React.createClass({
     }
   },
 
-  addtoPool: function(card){
+  chooseCard: function(card){
     var getcard = this.state.cards.findIndex(function(item){
       return item.id == card.id
     })
+    card.index = getcard
+    console.log(card)
     var updatedpool = this.state.cards
     updatedpool.splice(getcard, 1)
     this.setState({
       cardpicks: this.state.cardpicks.concat(card),
       cards: updatedpool
+    })
+  },
+
+  removeCard: function(card){
+    var getcard = this.state.cardpicks.findIndex(function(item){
+      return item.id == card.id
+    })
+    var updatedpicks = this.state.cardpicks
+    updatedpicks.splice(getcard, 1)
+    updatedpool = this.state.cards.concat(card)
+    // updatedpool.sort(function(a,b){
+    //     if (a.name > b.name) {
+    //       return 1;
+    //     }
+    //     if (a.name < b.name) {
+    //       return -1;
+    //     }
+    //     // a must be equal to b
+    //     return 0;
+    //   })
+    this.setState({
+      cards: updatedpool,
+      cardpicks: updatedpicks,
+      highlightedcard: undefined
     })
   },
 
@@ -35,7 +61,7 @@ var Sealedpool = React.createClass({
                 name={item.name}
                 color={item.color}
                 color2={item.color2}
-                onClick={this.addtoPool}
+                onClick={this.chooseCard}
              />
     }, this)
     var pickedcards = this.state.cardpicks.map(function(item){
@@ -48,6 +74,7 @@ var Sealedpool = React.createClass({
               onMouseEnter={this.highlightCard}
               onMouseLeave={this.hideCard}
               key={Math.random()}
+              onClick={this.removeCard}
             /></li>
       )
     }, this)
