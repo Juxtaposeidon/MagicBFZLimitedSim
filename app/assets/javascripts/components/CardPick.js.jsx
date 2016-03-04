@@ -3,6 +3,7 @@ var CardPick = React.createClass({
     return{
       name: this.props.name,
       id: this.props.id,
+      index: this.props.index,
       onMouseEnter: this.props.onMouseEnter,
       onMouseLeave: this.props.onMouseLeave,
       onClick: this.props.onClick,

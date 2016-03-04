@@ -11,8 +11,6 @@ var Sealedpool = React.createClass({
     var getcard = this.state.cards.findIndex(function(item){
       return item.id == card.id
     })
-    card.index = getcard
-    console.log(card)
     var updatedpool = this.state.cards
     updatedpool.splice(getcard, 1)
     this.setState({
@@ -27,7 +25,8 @@ var Sealedpool = React.createClass({
     })
     var updatedpicks = this.state.cardpicks
     updatedpicks.splice(getcard, 1)
-    updatedpool = this.state.cards.concat(card)
+    updatedpool = this.state.cards
+    updatedpool.splice(card.index, 0, card)
     // updatedpool.sort(function(a,b){
     //     if (a.name > b.name) {
     //       return 1;
@@ -55,7 +54,9 @@ var Sealedpool = React.createClass({
 
   render: function(){
     var cardlist = this.state.cards.map(function(item){
+      var index = this.state.cards.indexOf(item)
       return <Card
+                index={index}
                 key={Math.random()}
                 id={item.id}
                 name={item.name}
@@ -67,6 +68,7 @@ var Sealedpool = React.createClass({
     var pickedcards = this.state.cardpicks.map(function(item){
       return(
             <li><CardPick
+              index={item.index}
               id={item.id}
               name={item.name}
               color={item.color}
