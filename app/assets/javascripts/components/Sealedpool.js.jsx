@@ -1,28 +1,21 @@
 var Sealedpool = React.createClass({
   getInitialState: function(){
     return{
-      cards:this.props.cards.map(function(item){
-        return <Card
-                  key={Math.random()}
-                  tag={Math.random()}
-                  id={item.id}
-                  name={item.name}
-                  color={item.color}
-                  color2={item.color2}
-                  onClick={this.addPool}
-               />
-      }, this),
+      cards:this.props.cards,
       cardpicks: [],
       highlightedcard: this.props.highlightedcard,
     }
   },
-  addPool: function(card){
-    var minuscard = this.state.cards.filter(function(item){
-      return item.props.tag !== card.tag
+
+  addtoPool: function(card){
+    var getcard = this.state.cards.findIndex(function(item){
+      return item.id == card.id
     })
+    var updatedpool = this.state.cards
+    updatedpool.splice(getcard, 1)
     this.setState({
       cardpicks: this.state.cardpicks.concat(card),
-      cards: minuscard
+      cards: updatedpool
     })
   },
 
@@ -35,16 +28,16 @@ var Sealedpool = React.createClass({
   },
 
   render: function(){
-    // var cardlist = this.state.cards.map(function(item){
-    //   return <Card
-    //             key={Math.random()}
-    //             id={item.id}
-    //             name={item.name}
-    //             color={item.color}
-    //             color2={item.color2}
-    //             onClick={this.addPool}
-    //          />
-    // }, this)
+    var cardlist = this.state.cards.map(function(item){
+      return <Card
+                key={Math.random()}
+                id={item.id}
+                name={item.name}
+                color={item.color}
+                color2={item.color2}
+                onClick={this.addtoPool}
+             />
+    }, this)
     var pickedcards = this.state.cardpicks.map(function(item){
       return(
             <li><CardPick
@@ -69,7 +62,7 @@ var Sealedpool = React.createClass({
           <h3>Battle for Zendikar Sealed Pool</h3>
           <br/>
           <div className= "carddisplay">
-            {this.state.cards}
+            {cardlist}
           </div>
         </div>
       </div>
