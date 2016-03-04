@@ -19,6 +19,9 @@ class DraftsController < ApplicationController
     if request.xhr?
       @pack = @@draft.player1.currentpack.contents
       pickedcard=@@draft.player1.pool.last
+      if !pickedcard.color2
+        pickedcard.color2 = ""
+      end
       render :json => {
         :pick => pickedcard, :pack => @pack
       }

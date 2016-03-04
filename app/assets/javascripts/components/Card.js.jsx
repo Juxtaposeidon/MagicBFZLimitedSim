@@ -6,14 +6,14 @@ var Card = React.createClass({
       onClick: this.props.onClick,
       name: this.props.name,
       index: this.props.index,
-      color1: this.props.color1,
+      color: this.props.color,
       color2: this.props.color2
     }
   },
 
   _onClick: function(){
     if(this.props.onClick!= undefined){
-      this.props.onClick(this.props.id)
+      this.props.onClick(this.props)
     }
   },
 

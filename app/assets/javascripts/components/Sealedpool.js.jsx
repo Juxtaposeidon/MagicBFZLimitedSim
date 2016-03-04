@@ -1,27 +1,94 @@
 var Sealedpool = React.createClass({
   getInitialState: function(){
-    return{cards:this.props.cards}
+    return{
+      cards:this.props.cards.map(function(item){
+        return <Card
+                  key={Math.random()}
+                  tag={Math.random()}
+                  id={item.id}
+                  name={item.name}
+                  color={item.color}
+                  color2={item.color2}
+                  onClick={this.addPool}
+               />
+      }, this),
+      cardpicks: [],
+      highlightedcard: this.props.highlightedcard,
+    }
   },
-  // addCard:function(index, id, name, color, color2, card){
-  //   console.log(card)
-  //   card.toggle();
-  // },
-  render: function(){
-    var cardlist = this.state.cards.map(function(item){
-      ind = this.state.cards.indexOf(item)
-      // var handleclick=this.addCard.bind(this, ind, item.id, item.name, item.color, item.color2, item)
-      return <Card
-                key={ind}
-                id={item.id}
-                name={item.name}
-                color1={item.color}
-                color2={item.color2}
-                index={ind}
-             />
-    }, this)
+  addPool: function(card){
+    var minuscard = this.state.cards.filter(function(item){
+      return item.props.tag !== card.tag
+    })
+    this.setState({
+      cardpicks: this.state.cardpicks.concat(card),
+      cards: minuscard
+    })
+  },
 
+  highlightCard: function(card){
+    this.setState({highlightedcard: "/assets/" + card})
+  },
+
+  hideCard: function(thing){
+    this.setState({highlightedcard: undefined})
+  },
+
+  render: function(){
+    // var cardlist = this.state.cards.map(function(item){
+    //   return <Card
+    //             key={Math.random()}
+    //             id={item.id}
+    //             name={item.name}
+    //             color={item.color}
+    //             color2={item.color2}
+    //             onClick={this.addPool}
+    //          />
+    // }, this)
+    var pickedcards = this.state.cardpicks.map(function(item){
+      return(
+            <li><CardPick
+              id={item.id}
+              name={item.name}
+              color={item.color}
+              color2={item.color2}
+              onMouseEnter={this.highlightCard}
+              onMouseLeave={this.hideCard}
+              key={Math.random()}
+            /></li>
+      )
+    }, this)
+    if(this.state.highlightedcard){
+      var highlighted= this.state.highlightedcard
+    }
     return(
-      <div>{cardlist}</div>
+    <div>
+      <div className = "topmargin">
+        <div className = "sealedcards">
+          <div id = 'highlightedcard'><img src={highlighted}/></div>
+          <h3>Battle for Zendikar Sealed Pool</h3>
+          <br/>
+          <div className= "carddisplay">
+            {this.state.cards}
+          </div>
+        </div>
+      </div>
+      <div id="pool">
+        <table>
+        <tbody>
+          <tr>
+            <td>
+              <div id="sealedpool">
+              <ol>
+              {pickedcards}
+              </ol>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
     )
   }
 })

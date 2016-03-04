@@ -1,11 +1,11 @@
-var SelectedCard = React.createClass({
+var CardPick = React.createClass({
   getInitialState: function(){
     return{
       name: this.props.name,
       id: this.props.id,
       onMouseEnter: this.props.onMouseEnter,
       onMouseLeave: this.props.onMouseLeave,
-      colors: this.props.color1 + " card " + this.props.color2,
+      colors: this.props.color + " card " + this.props.color2,
     }
   },
 

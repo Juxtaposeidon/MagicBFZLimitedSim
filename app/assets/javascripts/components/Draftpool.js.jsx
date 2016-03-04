@@ -5,7 +5,6 @@ var Draftpool = React.createClass({
       cards: this.props.cards,
       pool: [],
       highlightedcard: this.props.highlightedcard,
-      hover: false
     }
   },
 
@@ -17,7 +16,7 @@ var Draftpool = React.createClass({
       $.ajax({
         url: '/drafts/update',
         method: 'PUT',
-        data: {'cardid': pick}
+        data: {'cardid': pick.id}
       })
       .done(function(){
         $.ajax({
@@ -40,11 +39,11 @@ var Draftpool = React.createClass({
   },
 
   highlightCard: function(card){
-    this.setState({highlightedcard: "/assets/" + card, hover: true})
+    this.setState({highlightedcard: "/assets/" + card})
   },
 
   hideCard: function(thing){
-    this.setState({hover: false})
+    this.setState({highlightedcard: undefined})
   },
 
   render: function(){
@@ -56,10 +55,10 @@ var Draftpool = React.createClass({
               />
     }, this)
     var wholepool = this.state.pool.map(function(item){
-      return <SelectedCard
+      return <CardPick
                 id={item.id}
                 name={item.name}
-                color1={item.color}
+                color={item.color}
                 color2={item.color2}
                 onMouseEnter={this.highlightCard}
                 onMouseLeave={this.hideCard}
@@ -69,7 +68,7 @@ var Draftpool = React.createClass({
     var pool2 = wholepool.slice(14,28)
     var pool3 = wholepool.slice(28,42)
 
-    if(this.state.hover){
+    if(this.state.highlightedcard){
       var highlighted= this.state.highlightedcard
     }
     return (
