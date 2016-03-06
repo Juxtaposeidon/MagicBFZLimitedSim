@@ -7,7 +7,7 @@ var Sealedpool = React.createClass({
     }
   },
 
-  chooseCard: function(card){
+  pickCard: function(card){
     var getcard = this.state.cards.findIndex(function(item){
       return item.id == card.id
     })
@@ -19,7 +19,7 @@ var Sealedpool = React.createClass({
     })
   },
 
-  removeCard: function(card){
+  removePick: function(card){
     var getcard = this.state.cardpicks.findIndex(function(item){
       return item.id == card.id
     })
@@ -27,16 +27,6 @@ var Sealedpool = React.createClass({
     updatedpicks.splice(getcard, 1)
     updatedpool = this.state.cards
     updatedpool.splice(card.index, 0, card)
-    // updatedpool.sort(function(a,b){
-    //     if (a.name > b.name) {
-    //       return 1;
-    //     }
-    //     if (a.name < b.name) {
-    //       return -1;
-    //     }
-    //     // a must be equal to b
-    //     return 0;
-    //   })
     this.setState({
       cards: updatedpool,
       cardpicks: updatedpicks,
@@ -62,22 +52,24 @@ var Sealedpool = React.createClass({
                 name={item.name}
                 color={item.color}
                 color2={item.color2}
-                onClick={this.chooseCard}
+                onClick={this.pickCard}
              />
     }, this)
     var pickedcards = this.state.cardpicks.map(function(item){
       return(
-            <li><CardPick
-              index={item.index}
-              id={item.id}
-              name={item.name}
-              color={item.color}
-              color2={item.color2}
-              onMouseEnter={this.highlightCard}
-              onMouseLeave={this.hideCard}
-              key={Math.random()}
-              onClick={this.removeCard}
-            /></li>
+            <li>
+              <CardPick
+                index={item.index}
+                id={item.id}
+                name={item.name}
+                color={item.color}
+                color2={item.color2}
+                onMouseEnter={this.highlightCard}
+                onMouseLeave={this.hideCard}
+                key={Math.random()}
+                onClick={this.removePick}
+              />
+            </li>
       )
     }, this)
     if(this.state.highlightedcard){
@@ -114,19 +106,3 @@ var Sealedpool = React.createClass({
     )
   }
 })
-
-      // <%@pack.each_with_index do |card, index|%>
-      //   <%=image_tag("#{card.id}.jpg", :border=>0, id: index, class: [card.color, card.color2, "cardimage"], data: {name: card.name, cardid: card.id}) %>
-      // <%end%>
-
-  //       $(".sealedcards").on("click", "img", function(){
-  //   var card = $(this).data('name');
-  //   var cardlocation = $(this).attr('id');
-  //   var cardid = $(this).data('cardid')
-  //   var cardcolors = $(this).attr('class')
-  //   $(this).toggle();
-  //   $('#sealedpool ol').append("<li>" + card + " (-)</li>")
-  //   $('li').last().addClass(cardcolors)
-  //   $('li').last().attr('id', cardlocation)
-  //   $('li').last().data('cardid', cardid)
-  // })
