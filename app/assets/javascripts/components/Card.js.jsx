@@ -19,16 +19,16 @@ var Card = React.createClass({
 
   render: function(){
     return(
-        <img
-          src={this.state.image}
-          className="cardimage"
-          onClick={this._onClick}
-          data-name={this.state.name}
-          data-color={this.state.color1}
-          data-color2={this.state.color2}
-          data-cardid={this.state.id}
-          id={this.state.index}
-        />
+      <img
+        src={this.state.image}
+        className="cardimage"
+        onClick={this._onClick}
+        data-name={this.state.name}
+        data-color={this.state.color1}
+        data-color2={this.state.color2}
+        data-cardid={this.state.id}
+        id={this.state.index}
+      />
     )
   }
 })
