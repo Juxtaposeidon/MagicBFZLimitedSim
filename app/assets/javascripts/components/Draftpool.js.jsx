@@ -26,9 +26,9 @@ var Draftpool = React.createClass({
         .done(function(result){
           nospam = 0
           component.setState({
-            cards: result['pack']
+            cards: result['pack'],
+            pool: component.state.pool.concat(result['pick'])
           })
-          component.setState({pool: component.state.pool.concat(result['pick'])})
           counter++;
           if(counter == 42){
             $('.cardpacksection').html("<H3>The draft is now over</H3>")
