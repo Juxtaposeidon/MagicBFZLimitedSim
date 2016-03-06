@@ -19,13 +19,12 @@ class DraftsController < ApplicationController
     if request.xhr?
       @pack = @@draft.player1.currentpack.contents
       pickedcard=@@draft.player1.pool.last
+      if !pickedcard.color2
+        pickedcard.color2 = ""
+      end
       render :json => {
-        :pick => pickedcard, :pack => @pack, :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{pickedcard.id}'>" + pickedcard.name + "</span>"
+        :pick => pickedcard, :pack => @pack
       }
-      # render :json => {
-        # :cardname => "<span class = 'card #{pickedcard.color} #{pickedcard.color2}' id = '#{pickedcard.id}'>" + pickedcard.name + "</span>",
-        # :partial => render_to_string(:partial => 'drafts/draft')
-      # }
     else
       redirect_to new_draft_path
     end
