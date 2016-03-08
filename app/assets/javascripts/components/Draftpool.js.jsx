@@ -1,5 +1,5 @@
 var counter = 0
-var Draftpool = React.createClass({
+var DraftpoolContainer = React.createClass({
   getInitialState: function(){
     return{
       cards: this.props.cards,
@@ -37,6 +37,24 @@ var Draftpool = React.createClass({
     }
   },
 
+  render: function(){
+    return(
+      <Draftpool
+        cards={this.state.cards}
+        pool={this.state.pool}
+        picking={this.getCards}
+      />
+    )
+  }
+})
+
+var Draftpool = React.createClass({
+  getInitialState: function(){
+    return{
+      highlightedcard: undefined
+    }
+  },
+
   highlightCard: function(card){
     this.setState({highlightedcard: "/assets/" + card})
   },
@@ -46,22 +64,26 @@ var Draftpool = React.createClass({
   },
 
   render: function(){
-    var cards = this.state.cards.map(function(item){
-      return <Card
-                onClick={this.getCards}
-                key={item.id}
-                id={item.id}
-                image={"/assets/" + item.id}
-              />
+    var cards = this.props.cards.map(function(item){
+      return(
+        <Card
+          onClick={this.props.picking}
+          key={item.id}
+          id={item.id}
+          image={"/assets/" + item.id}
+        />
+      )
     }, this)
-    var wholepool = this.state.pool.map(function(item){
-      return <CardPick
-                id={item.id}
-                name={item.name}
-                colors={item.color + " card " + item.color2}
-                onMouseEnter={this.highlightCard}
-                onMouseLeave={this.hideCard}
-              />
+    var wholepool = this.props.pool.map(function(item){
+      return(
+        <CardPick
+          id={item.id}
+          name={item.name}
+          colors={item.color + " card " + item.color2}
+          onMouseEnter={this.highlightCard}
+          onMouseLeave={this.hideCard}
+        />
+      )
     }, this)
     var pool1 = wholepool.slice(0,14)
     var pool2 = wholepool.slice(14,28)
