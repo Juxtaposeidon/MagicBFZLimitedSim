@@ -2,8 +2,7 @@ var Sealedpool = React.createClass({
   getInitialState: function(){
     return{
       cards:this.props.cards,
-      cardpicks: [],
-      highlightedcard: this.props.highlightedcard,
+      cardpicks: []
     }
   },
 
@@ -76,33 +75,33 @@ var Sealedpool = React.createClass({
       var highlighted= this.state.highlightedcard
     }
     return(
-    <div>
-      <div className = "topmargin">
-        <div className = "sealedcards">
-          <div id = 'highlightedcard'><img src={highlighted}/></div>
-          <h3>Battle for Zendikar Sealed Pool</h3>
-          <br/>
-          <div className= "carddisplay">
-            {cardlist}
+      <div>
+        <div className = "topmargin">
+          <div className = "sealedcards">
+            <div id = 'highlightedcard'><img src={highlighted}/></div>
+            <h3>Battle for Zendikar Sealed Pool</h3>
+            <br/>
+            <div className= "carddisplay">
+              {cardlist}
+            </div>
           </div>
         </div>
+        <div id="pool">
+          <table>
+          <tbody>
+            <tr>
+              <td>
+                <div id="sealedpool">
+                <ol>
+                {pickedcards}
+                </ol>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
       </div>
-      <div id="pool">
-        <table>
-        <tbody>
-          <tr>
-            <td>
-              <div id="sealedpool">
-              <ol>
-              {pickedcards}
-              </ol>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-        </table>
-      </div>
-    </div>
     )
   }
 })
