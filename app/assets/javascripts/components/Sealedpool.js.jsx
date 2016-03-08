@@ -1,4 +1,4 @@
-var Sealedpool = React.createClass({
+var SealedpoolContainer = React.createClass({
   getInitialState: function(){
     return{
       cards:this.props.cards,
@@ -29,21 +29,46 @@ var Sealedpool = React.createClass({
     this.setState({
       cards: updatedpool,
       cardpicks: updatedpicks,
-      highlightedcard: undefined
     })
+  },
+
+  render: function(){
+    return(
+      <div>
+        <Sealedpool
+          picking= {this.pickCard}
+          removing= {this.removePick}
+          cards= {this.state.cards}
+          cardpicks= {this.state.cardpicks}
+        />
+      </div>
+    )
+  }
+})
+
+var Sealedpool = React.createClass({
+  getInitialState: function(){
+    return{
+      highlightedcard: undefined
+    }
   },
 
   highlightCard: function(card){
     this.setState({highlightedcard: "/assets/" + card})
   },
 
-  hideCard: function(thing){
+  hideCard: function(){
     this.setState({highlightedcard: undefined})
   },
 
+  removeCard: function(item){
+    this.props.removing(item)
+    this.hideCard()
+  },
+
   render: function(){
-    var cardlist = this.state.cards.map(function(item){
-      var index = this.state.cards.indexOf(item)
+    var cardlist = this.props.cards.map(function(item){
+      var index = this.props.cards.indexOf(item)
       return <Card
                 index={index}
                 key={Math.random()}
@@ -51,11 +76,11 @@ var Sealedpool = React.createClass({
                 name={item.name}
                 color={item.color}
                 color2={item.color2}
-                onClick={this.pickCard}
+                onClick={this.props.picking}
                 image={"/assets/" + item.id}
              />
     }, this)
-    var pickedcards = this.state.cardpicks.map(function(item){
+    var pickedcards = this.props.cardpicks.map(function(item){
       return(
             <li>
               <CardPick
@@ -66,7 +91,7 @@ var Sealedpool = React.createClass({
                 onMouseEnter={this.highlightCard}
                 onMouseLeave={this.hideCard}
                 key={Math.random()}
-                onClick={this.removePick}
+                onClick={this.removeCard}
               />
             </li>
       )
@@ -93,7 +118,7 @@ var Sealedpool = React.createClass({
               <td>
                 <div id="sealedpool">
                 <ol>
-                {pickedcards}
+                  {pickedcards}
                 </ol>
                 </div>
               </td>
