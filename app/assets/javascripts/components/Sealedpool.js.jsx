@@ -7,15 +7,20 @@ var SealedpoolContainer = React.createClass({
   },
 
   pickCard: function(card){
-    var getcard = this.state.cards.findIndex(function(item){
-      return item.id == card.id
-    })
-    var updatedpool = this.state.cards
-    updatedpool.splice(getcard, 1)
-    this.setState({
-      cardpicks: this.state.cardpicks.concat(card),
-      cards: updatedpool
-    })
+    if(this.state.cardpicks.length < 35){
+      var getcard = this.state.cards.findIndex(function(item){
+        return item.id == card.id
+      })
+      var updatedpool = this.state.cards
+      updatedpool.splice(getcard, 1)
+      this.setState({
+        cardpicks: this.state.cardpicks.concat(card),
+        cards: updatedpool
+      })
+    }
+    else{
+      alert("There is a 35 card limit to your deck.")
+    }
   },
 
   removePick: function(card){
@@ -92,6 +97,7 @@ var Sealedpool = React.createClass({
                 onMouseLeave={this.hideCard}
                 key={Math.random()}
                 onClick={this.removeCard}
+                minus="(-)"
               />
             </li>
       )
