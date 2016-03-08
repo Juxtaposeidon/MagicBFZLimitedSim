@@ -1,10 +1,10 @@
 var CardPick = React.createClass({
 
-  _onEnter: function(){
+  onEnterName: function(){
     this.props.onMouseEnter(this.props.id)
   },
 
-  _onClick: function(){
+  onClickSubmit: function(){
     if(this.props.onClick!= undefined){
       this.props.onClick(this.props)
     }
@@ -12,7 +12,7 @@ var CardPick = React.createClass({
 
   render: function(){
     return(
-      <span className={this.props.colors} id={this.props.id} onClick={this._onClick} onMouseEnter={this._onEnter} onMouseLeave={this.props.onMouseLeave}>[{this.props.name}]</span>
+      <span className={this.props.colors} id={this.props.id} onClick={this.onClickSubmit} onMouseEnter={this.onEnterName} onMouseLeave={this.props.onMouseLeave}>[{this.props.name}]</span>
     )
   }
 })
