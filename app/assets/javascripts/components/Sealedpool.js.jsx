@@ -53,6 +53,7 @@ var Sealedpool = React.createClass({
                 color={item.color}
                 color2={item.color2}
                 onClick={this.pickCard}
+                image={"/assets/" + item.id}
              />
     }, this)
     var pickedcards = this.state.cardpicks.map(function(item){

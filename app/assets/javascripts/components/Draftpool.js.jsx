@@ -51,6 +51,7 @@ var Draftpool = React.createClass({
                 onClick={this.getCards}
                 key={item.id}
                 id={item.id}
+                image={"/assets/" + item.id}
               />
     }, this)
     var wholepool = this.state.pool.map(function(item){
