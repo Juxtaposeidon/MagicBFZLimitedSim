@@ -4,7 +4,6 @@ var Draftpool = React.createClass({
     return{
       cards: this.props.cards,
       pool: [],
-      highlightedcard: this.props.highlightedcard,
     }
   },
 
@@ -58,8 +57,7 @@ var Draftpool = React.createClass({
       return <CardPick
                 id={item.id}
                 name={item.name}
-                color={item.color}
-                color2={item.color2}
+                colors={item.color + " card " + item.color2}
                 onMouseEnter={this.highlightCard}
                 onMouseLeave={this.hideCard}
               />
