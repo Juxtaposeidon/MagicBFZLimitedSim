@@ -1,14 +1,14 @@
 var SealedpoolContainer = React.createClass({
-  getInitialState: function () {
-    return {
-      cards: this.props.cards,
+  getInitialState: function(){
+    return{
+      cards:this.props.cards,
       cardpicks: []
     }
   },
 
-  pickCard: function (card) {
-    if (this.state.cardpicks.length < 35) {
-      var getcard = this.state.cards.findIndex(function (item) {
+  pickCard: function(card){
+    if(this.state.cardpicks.length < 35){
+      var getcard = this.state.cards.findIndex(function(item){
         return item.id == card.id
       })
       var updatedpool = this.state.cards
@@ -18,13 +18,13 @@ var SealedpoolContainer = React.createClass({
         cards: updatedpool
       })
     }
-    else {
+    else{
       alert("There is a 35 card limit to your deck.")
     }
   },
 
-  removePick: function (card) {
-    var getcard = this.state.cardpicks.findIndex(function (item) {
+  removePick: function(card){
+    var getcard = this.state.cardpicks.findIndex(function(item){
       return item.id == card.id
     })
     var updatedpicks = this.state.cardpicks
@@ -33,12 +33,12 @@ var SealedpoolContainer = React.createClass({
     updatedpool.splice(card.index, 0, card)
     this.setState({
       cards: updatedpool,
-      cardpicks: updatedpicks
+      cardpicks: updatedpicks,
     })
   },
 
-  render: function () {
-    return (
+  render: function(){
+    return(
       <div>
         <Sealedpool
           picking= {this.pickCard}
@@ -52,30 +52,29 @@ var SealedpoolContainer = React.createClass({
 })
 
 var Sealedpool = React.createClass({
-  getInitialState: function () {
-    return {
+  getInitialState: function(){
+    return{
       highlightedcard: undefined
     }
   },
 
-  highlightCard: function (card) {
+  highlightCard: function(card){
     this.setState({highlightedcard: "/assets/" + card})
   },
 
-  hideCard: function () {
+  hideCard: function(){
     this.setState({highlightedcard: undefined})
   },
 
-  removeCard: function (item) {
+  removeCard: function(item){
     this.props.removing(item)
     this.hideCard()
   },
 
-  render: function () {
-    var cardlist = this.props.cards.map(function (item) {
+  render: function(){
+    var cardlist = this.props.cards.map(function(item){
       var index = this.props.cards.indexOf(item)
-      return (
-              <Card
+      return <Card
                 index={index}
                 key={Math.random()}
                 id={item.id}
@@ -85,10 +84,9 @@ var Sealedpool = React.createClass({
                 onClick={this.props.picking}
                 image={"/assets/" + item.id}
              />
-      )
     }, this)
-    var pickedcards = this.props.cardpicks.map(function (item) {
-      return (
+    var pickedcards = this.props.cardpicks.map(function(item){
+      return(
             <li>
               <CardPick
                 index={item.index}
@@ -104,14 +102,14 @@ var Sealedpool = React.createClass({
             </li>
       )
     }, this)
-    if (this.state.highlightedcard) {
+    if(this.state.highlightedcard){
       var highlighted= this.state.highlightedcard
     }
-    return (
+    return(
       <div>
         <div className = "topmargin">
           <div className = "sealedcards">
-            <div id = "highlightedcard"><img src={highlighted}/></div>
+            <div id = 'highlightedcard'><img src={highlighted}/></div>
             <h3>Battle for Zendikar Sealed Pool</h3>
             <br/>
             <div className= "carddisplay">

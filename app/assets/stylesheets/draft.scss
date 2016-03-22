@@ -1,47 +1,47 @@
-.White{
+.White {
   color: white;
 }
 
-.Black{
+.Black {
   color: black;
 }
 
-.Blue{
+.Blue {
   color: #3300CC;
 }
 
-.Green{
+.Green {
   color:#00ff7f;
 }
 
-.Red{
+.Red {
   color: #FF2652;
 }
 
-.Colorless{
+.Colorless {
   color: #B0B0B0;
 }
 
-.White.Red, .White.Green, .Blue.Red, .Blue.Green, .White.Black, .Black.Green, .Black.Red, .Blue.Black, .Black.Red, .Red.Green, .White.Blue{
+.White.Red, .White.Green, .Blue.Red, .Blue.Green, .White.Black, .Black.Green, .Black.Red, .Blue.Black, .Black.Red, .Red.Green, .White.Blue {
   color: #FFD700;
 }
 
-#pooltitle{
+#pooltitle {
   margin-top: 20px;
 }
 
-.pooltd{
+.pooltd {
   vertical-align: text-top;
   height: 200px;
   font-size: .85em;
 }
 
-.cards{
+.cards {
   margin-top: 60px;
   width:70%;
 }
 
-#highlightedcard{
+#highlightedcard {
   position: fixed;
   height:100px;
   width:100px;
@@ -50,6 +50,6 @@
   z-index: 1;
 }
 
-#cardpooltable{
+#cardpooltable {
   padding-left: 30px;
 }
