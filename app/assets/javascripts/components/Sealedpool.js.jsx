@@ -80,6 +80,8 @@ var Sealedpool = React.createClass({
                 key={Math.random()}
                 id={item.id}
                 name={item.name}
+                color={item.color}
+                color2={item.color2}
                 onClick={this.props.picking}
                 image={"/assets/" + item.id}
              />

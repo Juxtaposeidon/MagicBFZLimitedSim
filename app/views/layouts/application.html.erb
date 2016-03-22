@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>MTG Limited Sim: BFZ</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,16 +11,16 @@
   <table>
     <tr>
       <td>
-      <%=link_to 'Battle for Zendikar limited sim.', root_path%>
+      <%= link_to 'Battle for Zendikar limited sim.', root_path %>
       </td>
       <td class = "menuitem">
-        <%=link_to 'Start draft', new_draft_path%>
+        <%= link_to 'Start draft', new_draft_path %>
       </td>
       <td class = "menuitem">
-        <%=link_to 'Start sealed', new_sealedpool_path%>
+        <%= link_to 'Start sealed', new_sealedpool_path %>
       </td>
       <td class = "menuitem">
-        <%=link_to 'View full BFZ set', cards_path%>
+        <%= link_to 'View full BFZ set', cards_path %>
       </td>
     </tr>
 </table>

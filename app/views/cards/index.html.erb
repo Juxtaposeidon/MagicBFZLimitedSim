@@ -1,8 +1,8 @@
 <div class = "topmargin">
-  <%@cards.each do |card|%>
-    <%=image_tag("#{card.id}.jpg", :border=>0)%>
-  <%end%>
-  <%@multicolorcards.each do |card|%>
-    <%=image_tag("#{card.id}.jpg", :border=>0)%>
-  <%end%>
+  <% @cards.each do |card| %>
+    <%= image_tag("#{card.id}.jpg", :border=>0) %>
+  <% end %>
+  <% @multicolorcards.each do |card| %>
+    <%= image_tag("#{card.id}.jpg", :border=>0) %>
+  <% end %>
 </div>

@@ -30,17 +30,17 @@ class Player
 
   def cpuChoose
     if @pool.length < 8
-      highvalue = @currentpack.contents.max_by{|card| card.rank}.rank
-      choicecard = @currentpack.contents.select{|card| card.rank == highvalue}.sample
+      highvalue = @currentpack.contents.max_by {|card| card.rank}.rank
+      choicecard = @currentpack.contents.select {|card| card.rank == highvalue}.sample
     else
       pickColor
       opencards = @currentpack.contents.partition {|card| onColor(card)}
       if opencards[0].length > 0
-        highvalue = opencards[0].max_by{|card| card.rank}.rank
-        choicecard = opencards[0].select{|card| card.rank == highvalue}.sample
+        highvalue = opencards[0].max_by {|card| card.rank}.rank
+        choicecard = opencards[0].select {|card| card.rank == highvalue}.sample
       else
-        highvalue = opencards[1].max_by{|card| card.rank}.rank
-        choicecard = opencards[1].select{|card| card.rank == highvalue}.sample
+        highvalue = opencards[1].max_by {|card| card.rank}.rank
+        choicecard = opencards[1].select {|card| card.rank == highvalue}.sample
       end
     end
     addPool(choicecard)
@@ -52,8 +52,8 @@ class Player
   end
 
   def pickColor
-    @color1 = @colordepth.sort_by{|k,v| v}[@colordepth.length-1][0]
-    @color2 = @colordepth.sort_by{|k,v| v}[@colordepth.length-2][0]
+    @color1 = @colordepth.sort_by {|k,v| v}[@colordepth.length-1][0]
+    @color2 = @colordepth.sort_by {|k,v| v}[@colordepth.length-2][0]
   end
 
   def onColor(card)

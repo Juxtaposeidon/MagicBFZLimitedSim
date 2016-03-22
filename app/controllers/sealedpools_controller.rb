@@ -4,7 +4,7 @@ class SealedpoolsController < ApplicationController
     6.times do
       @pack += Pack.new.contents
     end
-    @pack.sort_by!{|card| [card.color, card.name]}
+    @pack.sort_by! {|card| [card.color, card.name]}
     multiholder = []
     @pack.delete_if do |card|
       unless card.color2.nil?
