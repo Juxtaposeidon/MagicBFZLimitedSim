@@ -51,5 +51,18 @@
 }
 
 #cardpooltable {
-  padding-left: 30px;
+  margin-left: 10px;
 }
+
+
+#pool {
+  position:fixed;
+  bottom:0;
+  right: 0;
+  height:100%;
+  background-color: #685757;
+  width: 30%;
+  top: 5%;
+  z-index: 0;
+}
+

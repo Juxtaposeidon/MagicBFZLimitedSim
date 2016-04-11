@@ -6,6 +6,7 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 gem "chartkick"
+gem 'bootstrap-sass', '~> 3.2.0'
 gem 'react-rails', '~> 1.5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
